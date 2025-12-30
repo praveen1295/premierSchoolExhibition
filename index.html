@@ -17,32 +17,128 @@
       <div class="container header__container">
         <div class="header__logo">
           <img
-            src="https://placehold.co/150x60/003366/FFF?text=PSE+Logo"
+            src="https://placehold.co/180x60/0056b3/FFF?text=Premier+Schools+Exhibition"
             alt="Premier Schools Exhibition Logo"
           />
         </div>
-        <a href="#register" class="btn btn--primary">Register Now &rarr;</a>
+
+        <button id="openModalBtn" class="btn btn--white js-open-modal">
+          Register Now &rarr;
+        </button>
       </div>
     </header>
+
+    <div id="registerModal" class="modal-overlay" aria-hidden="true">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3>Register for Event</h3>
+          <button class="modal-close" id="closeModalBtn" aria-label="Close">
+            &times;
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <form class="register-form" id="modalForm">
+            <div class="form-group">
+              <label for="m_name">Full Name</label>
+              <input
+                type="text"
+                id="m_name"
+                name="name"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="m_email">Email Address</label>
+              <input
+                type="email"
+                id="m_email"
+                name="email"
+                placeholder="name@example.com"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="m_phone">Phone Number</label>
+              <input
+                type="tel"
+                id="m_phone"
+                name="phone"
+                placeholder="+91 98765 43210"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="m_grade">Child's Grade</label>
+              <select id="m_grade" name="grade" required>
+                <option value="" disabled selected>Select grade</option>
+                <option value="preschool">Pre-School</option>
+                <option value="primary">Primary (1-5)</option>
+                <option value="middle">Middle (6-8)</option>
+                <option value="high">High School (9-12)</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn--submit btn--full">
+              <span>Complete Registration</span>
+            </button>
+
+            <p class="form-status" id="modalStatus"></p>
+          </form>
+        </div>
+      </div>
+    </div>
 
     <main id="main-content">
       <section class="event-info" id="register">
         <div class="container event-info__grid">
           <div class="event-info__text">
-            <div class="badge-edition">22nd Edition</div>
-            <h2>
-              Discover Gurugram's <br /><span class="highlight"
-                >Top 30+ Schools</span
-              >
+            <h2 class="hero-title">
+              Discover Gurugram's <br />
+              <span class="highlight">Top 30+ Schools</span>
             </h2>
-            <p>ALL IN ONE PLACE</p>
+            <p class="hero-subtitle">ALL IN ONE PLACE</p>
 
-            <div class="event-card">
-              <div class="event-card__loc">
-                <strong>Apparel House,</strong><br />Sec 44, Gurugram
+            <div class="schedule-box">
+              <div class="schedule-row">
+                <div class="schedule-details loc">
+                  <strong>Apparel House,</strong><span>Sec 44, Gurugram</span>
+                </div>
+                <div class="schedule-details date">
+                  <strong>2-3 August 2025</strong
+                  ><span>Sat-Sun | 10AM - 6PM</span>
+                </div>
               </div>
-              <div class="event-card__date">
-                <strong>2-3 August 2025</strong><br />Sat-Sun | 10AM - 6PM
+              <div class="schedule-row">
+                <div class="schedule-details loc">
+                  <strong>Apparel House,</strong><span>Sec 44, Gurugram</span>
+                </div>
+                <div class="schedule-details date">
+                  <strong>2-3 August 2025</strong
+                  ><span>Sat-Sun | 10AM - 6PM</span>
+                </div>
+              </div>
+              <div class="schedule-row">
+                <div class="schedule-details loc">
+                  <strong>Apparel House,</strong><span>Sec 44, Gurugram</span>
+                </div>
+                <div class="schedule-details date">
+                  <strong>2-3 August 2025</strong
+                  ><span>Sat-Sun | 10AM - 6PM</span>
+                </div>
+              </div>
+              <div class="schedule-row">
+                <div class="schedule-details loc">
+                  <strong>Apparel House,</strong><span>Sec 44, Gurugram</span>
+                </div>
+                <div class="schedule-details date">
+                  <strong>2-3 August 2025</strong
+                  ><span>Sat-Sun | 10AM - 6PM</span>
+                </div>
               </div>
             </div>
           </div>
@@ -181,7 +277,6 @@
             <h3>Enquire Now</h3>
             <form class="enquiry-form">
               <div class="form-group">
-                <label for="parentName" class="sr-only">Parent's Name</label>
                 <input
                   type="text"
                   id="parentName"
@@ -190,7 +285,6 @@
                 />
               </div>
               <div class="form-group">
-                <label for="phone" class="sr-only">Phone number</label>
                 <input
                   type="tel"
                   id="phone"
@@ -199,9 +293,6 @@
                 />
               </div>
               <div class="form-group">
-                <label for="grade" class="sr-only"
-                  >Which grade are you looking for?</label
-                >
                 <select id="grade">
                   <option value="" disabled selected>
                     Which grade are you looking for?
@@ -210,7 +301,9 @@
                   <option value="k12">K-12</option>
                 </select>
               </div>
-              <button type="submit" class="btn btn--submit">Submit ↗</button>
+              <button type="submit" class="btn btn--submit">
+                Submit &rarr;
+              </button>
             </form>
           </div>
         </div>
@@ -236,56 +329,99 @@
           </div>
         </div>
       </section>
-
-      <section class="partners" aria-label="Participating Schools">
-        <h2 class="section-title text-center">Participating Schools</h2>
-
+      <section class="partners-section">
         <div class="marquee marquee--left">
           <div class="marquee__track">
-            <div class="marquee__item">Harrow Int.</div>
-            <div class="marquee__item">Shrewsbury</div>
-            <div class="marquee__item">King's College</div>
-            <div class="marquee__item">Woodstock</div>
-            <div class="marquee__item">Aga Khan</div>
-            <div class="marquee__item" aria-hidden="true">Harrow Int.</div>
-            <div class="marquee__item" aria-hidden="true">Shrewsbury</div>
-            <div class="marquee__item" aria-hidden="true">King's College</div>
-            <div class="marquee__item" aria-hidden="true">Woodstock</div>
-            <div class="marquee__item" aria-hidden="true">Aga Khan</div>
+            <div class="marquee__item">
+              <div class="card-icon">HI</div>
+              Harrow Int.
+            </div>
+            <div class="marquee__item">
+              <div class="card-icon">SH</div>
+              Shrewsbury
+            </div>
+            <div class="marquee__item">
+              <div class="card-icon">KC</div>
+              King's College
+            </div>
+            <div class="marquee__item">
+              <div class="card-icon">WS</div>
+              Woodstock
+            </div>
+            <div class="marquee__item">
+              <div class="card-icon">AK</div>
+              Aga Khan
+            </div>
+
+            <div class="marquee__item">
+              <div class="card-icon">HI</div>
+              Harrow Int.
+            </div>
+            <div class="marquee__item">
+              <div class="card-icon">SH</div>
+              Shrewsbury
+            </div>
+            <div class="marquee__item">
+              <div class="card-icon">KC</div>
+              King's College
+            </div>
+            <div class="marquee__item">
+              <div class="card-icon">WS</div>
+              Woodstock
+            </div>
+            <div class="marquee__item">
+              <div class="card-icon">AK</div>
+              Aga Khan
+            </div>
           </div>
         </div>
 
         <div class="marquee marquee--right">
           <div class="marquee__track">
-            <div class="marquee__item">School A</div>
-            <div class="marquee__item">School B</div>
-            <div class="marquee__item">School C</div>
-            <div class="marquee__item">School D</div>
-            <div class="marquee__item">School E</div>
-            <div class="marquee__item" aria-hidden="true">School A</div>
-            <div class="marquee__item" aria-hidden="true">School B</div>
-            <div class="marquee__item" aria-hidden="true">School C</div>
-            <div class="marquee__item" aria-hidden="true">School D</div>
-            <div class="marquee__item" aria-hidden="true">School E</div>
+            <div class="marquee__item">
+              <div class="card-icon">ST</div>
+              St. Andrews
+            </div>
+            <div class="marquee__item">
+              <div class="card-icon">BP</div>
+              Bangkok Patana
+            </div>
+            <div class="marquee__item">
+              <div class="card-icon">NI</div>
+              NIST Int.
+            </div>
+            <div class="marquee__item">
+              <div class="card-icon">IS</div>
+              ISB
+            </div>
+            <div class="marquee__item">
+              <div class="card-icon">RU</div>
+              Ruamrudee
+            </div>
+
+            <div class="marquee__item">
+              <div class="card-icon">ST</div>
+              St. Andrews
+            </div>
+            <div class="marquee__item">
+              <div class="card-icon">BP</div>
+              Bangkok Patana
+            </div>
+            <div class="marquee__item">
+              <div class="card-icon">NI</div>
+              NIST Int.
+            </div>
+            <div class="marquee__item">
+              <div class="card-icon">IS</div>
+              ISB
+            </div>
+            <div class="marquee__item">
+              <div class="card-icon">RU</div>
+              Ruamrudee
+            </div>
           </div>
         </div>
       </section>
-
-      <!-- <section class="video-banner">
-        <div class="video-banner__overlay">
-          <div class="video-banner__content">
-            <div class="play-button-large">
-              <span class="play-icon">▶</span>
-            </div>
-            <h3>Play Event Video</h3>
-          </div>
-        </div>
-        <img
-          src="https://placehold.co/1200x600/2E1A5E/FFF?text=Event+Video+Thumbnail"
-          alt="Event Video"
-          class="video-bg"
-        />
-      </section> -->
 
       <section class="video-banner">
         <video
@@ -303,7 +439,7 @@
         </video>
       </section>
 
-      <section class="hero" aria-label="Hero Slider">
+      <!-- <section class="hero" aria-label="Hero Slider">
         <div class="hero__wrapper" id="hero-slider">
           <div class="hero__slide active">
             <div class="hero__text-content" data-animate="vertical">
@@ -325,9 +461,35 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
       <!-- diamond logic -->
-      <section class="attractions">
+
+      <section class="hero" aria-label="Hero Slider">
+        <div class="hero__wrapper" id="hero-slider">
+          <div class="hero__slide active">
+            <div class="hero__text-content" data-animate="vertical">
+              <span class="hero__subtitle"
+                >Exciting Opportunities for Parents!</span
+              >
+              <h1 class="hero__title">
+                Pre-schedule Your <br />School Appointments
+              </h1>
+              <p class="hero__tagline">To Avoid Rush</p>
+              <a href="#schedule" class="btn btn--outline">Pre-Schedule Now</a>
+            </div>
+
+            <div class="hero__image-content" data-animate="horizontal">
+              <img
+                src="./assets/heroImg1.png"
+                alt="Parents discussing"
+                class="hero__img"
+              />
+              <!-- "https://placehold.co/800x600/e0d4fc/333?text=Parents+Meeting" -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- <section class="attractions">
         <div class="container attractions__grid">
           <div class="attractions__visuals">
             <div class="diamond-cluster">
@@ -385,8 +547,72 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
 
+      <section class="attractions">
+        <div class="container attractions__layout">
+          <div class="attractions__visuals">
+            <div class="diamond-cluster">
+              <div class="diamond d-top">
+                <img
+                  src="https://placehold.co/200x200/pink/fff?text=Singing"
+                  alt="Kid 1"
+                />
+              </div>
+              <div class="diamond d-left">
+                <img
+                  src="https://placehold.co/200x200/orange/fff?text=Stage"
+                  alt="Kid 2"
+                />
+              </div>
+              <div class="diamond d-right">
+                <img
+                  src="https://placehold.co/200x200/blue/fff?text=Prize"
+                  alt="Kid 3"
+                />
+              </div>
+              <div class="diamond d-bottom">
+                <img
+                  src="https://placehold.co/200x200/green/fff?text=Group"
+                  alt="Kid 4"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="attractions__center-logo">
+            <img
+              src="https://placehold.co/150x150/fff/333?text=Premier+Kidz+Star+Logo"
+              alt="Premier Kidz Awards Logo"
+              class="star-img"
+            />
+          </div>
+
+          <div class="attractions__content">
+            <h2 class="section-title text-left">
+              Other Attractions for <br />Parents & Kids
+            </h2>
+
+            <div class="tab-buttons">
+              <button class="tab-btn active">PREMIER KIDZ AWARDS</button>
+              <button class="tab-btn">THE PARENT EXCHANGE</button>
+            </div>
+
+            <div class="tab-content">
+              <h3>Premier Kidz Awards</h3>
+              <p>
+                A prestigious platform celebrating young talent and building
+                confidence by giving children the spotlight to shine.
+              </p>
+
+              <a href="#" class="custom-arrow-btn">
+                <span class="btn-icon">↗</span>
+                <span class="btn-text">TO KNOW MORE</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
       <section class="school-types">
         <div class="container">
           <h2 class="section-title text-center">
@@ -490,31 +716,59 @@
           <h2 class="section-title">What Makes Parents Choose Us</h2>
           <div class="reviews-grid">
             <div class="review-card">
-              <img
-                src="https://placehold.co/400x250/333/fff?text=Parent+Review+1"
-                alt="Review 1"
-              />
+              <video
+                controls
+                playsinline
+                poster="https://placehold.co/400x250/333/fff?text=Parent+Review+1"
+              >
+                <source
+                  src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
               <div class="play-overlay"><span>▶ Visitor's Review</span></div>
             </div>
+
             <div class="review-card">
-              <img
-                src="https://placehold.co/400x250/444/fff?text=Parent+Review+2"
-                alt="Review 2"
-              />
+              <video
+                controls
+                playsinline
+                poster="https://placehold.co/400x250/444/fff?text=Parent+Review+2"
+              >
+                <source
+                  src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
+                  type="video/mp4"
+                />
+              </video>
               <div class="play-overlay"><span>▶ Visitor's Review</span></div>
             </div>
+
             <div class="review-card">
-              <img
-                src="https://placehold.co/400x250/555/fff?text=Parent+Review+3"
-                alt="Review 3"
-              />
+              <video
+                controls
+                playsinline
+                poster="https://placehold.co/400x250/555/fff?text=Parent+Review+3"
+              >
+                <source
+                  src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4"
+                  type="video/mp4"
+                />
+              </video>
               <div class="play-overlay"><span>▶ Visitor's Review</span></div>
             </div>
+
             <div class="review-card">
-              <img
-                src="https://placehold.co/400x250/666/fff?text=Parent+Review+4"
-                alt="Review 4"
-              />
+              <video
+                controls
+                playsinline
+                poster="https://placehold.co/400x250/666/fff?text=Parent+Review+4"
+              >
+                <source
+                  src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4"
+                  type="video/mp4"
+                />
+              </video>
               <div class="play-overlay"><span>▶ Visitor's Review</span></div>
             </div>
           </div>
@@ -579,7 +833,6 @@
       </div>
     </footer>
 
-    <script src="./scripts/main.js"></script>
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
@@ -590,5 +843,6 @@
         emailjs.init("YOUR_PUBLIC_KEY_HERE");
       })();
     </script>
+    <script src="./scripts/main.js" defer></script>
   </body>
 </html>

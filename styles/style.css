@@ -78,18 +78,347 @@ body {
 
 /* HEADER */
 
+/* --- HEADER SECTION --- */
 .header {
-  padding: 1rem 0;
-  background: var(--white);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.8rem 0; /* Slightly tighter padding to match the sleek look */
+
+  /* The Deep Purple Gradient Background */
+  background: linear-gradient(90deg, #180c3c 0%, #2e1a5e 100%);
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000; /* Ensures it stays on top of content */
 }
+
 .header__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* Ensure container width is constrained and centered */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Logo Styling */
+.header__logo img {
+  height: 50px; /* Adjust height to fit the bar */
+  width: auto;
+  display: block;
+  border-radius: 4px; /* Slight rounded corners on logo if desired */
+}
+
+/* --- THE WHITE "REGISTER NOW" BUTTON --- */
+.btn--white {
+  background-color: #ffffff;
+  color: #003366; /* Dark Blue text to match the logo theme */
+  font-weight: 700; /* Bold text */
+  font-size: 1rem;
+  padding: 10px 28px; /* Horizontal padding for pill shape */
+  border-radius: 50px; /* Pill shape */
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Space between text and arrow */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effect */
+.btn--white:hover {
+  transform: translateY(-2px); /* Lifts up slightly */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increased shadow */
+  background-color: #f0f8ff; /* Very light blue tint on hover */
+}
+
+/* --- SECTION: EVENT INFO --- */
+.event-info {
+  padding: 4rem 0;
+  background-color: #f8f9fa; /* Light background for contrast */
+}
+
+/* 1. THE GRID LAYOUT (Holds Text, Slider, and Form) */
+.event-info__grid {
+  display: grid;
+  /* Desktop: 3 Columns (Text gets slightly more space) */
+  grid-template-columns: 1.2fr 1fr 0.8fr;
+  gap: 2rem;
+  align-items: center; /* Vertically center all items */
+}
+
+/* 2. THE TEXT CONTAINER (Deep Purple Box) */
+.event-info__text {
+  background: transparent;
+  padding: 2.5rem 2rem; /* Balanced padding */
+  border-radius: 20px; /* Rounded corners to match design */
+  color: #fad9a1;
+  font-family: "Poppins", sans-serif;
+
+  /* Ensure it fills the height/width of its grid cell comfortably */
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(15, 12, 41, 0.2);
+
+  /* Flex layout to stack title and schedule box neatly */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 3. TYPOGRAPHY MANAGEMENT (Responsive Fonts) */
+.hero-title {
+  /* clamp(min, preferred, max) - Fluid font sizing */
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  color: #fad9a1;
+}
+
+.hero-title .highlight {
+  /* Make highlight slightly larger than base title */
+  font-size: clamp(2.2rem, 3vw, 3rem);
+  font-weight: 700;
+  display: block;
+  margin-top: 5px;
+  color: #ffffff; /* Brighter white/gold for pop */
+}
+
+.hero-subtitle {
+  font-size: clamp(0.9rem, 1vw, 1.2rem);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  color: rgba(250, 217, 161, 0.8); /* Slight opacity */
+  font-weight: 500;
+}
+
+/* 4. THE SCHEDULE BOX (Cream Card) */
+.schedule-box {
+  background-color: #fad9a1;
+  border-radius: 16px;
+  padding: 5px 20px;
+  border: 4px solid #e8c68a;
+
+  /* Fluid Width: Fits inside the purple box regardless of screen size */
+  width: 100%;
+  max-width: 100%;
+
+  color: #1a0b2e;
+}
+
+/* Individual Rows */
+.schedule-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(26, 11, 46, 0.15);
+}
+
+.schedule-row:last-child {
+  border-bottom: none;
+}
+
+/* Text Styling inside Schedule */
+.schedule-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Font management for schedule text */
+.schedule-details strong {
+  font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+  font-weight: 800;
+  color: #1a0b2e;
+  line-height: 1.2;
+}
+
+.schedule-details span {
+  font-size: clamp(0.75rem, 0.9vw, 0.9rem);
+  color: #2e1a5e;
+}
+
+/* Layout for Locations vs Dates */
+.schedule-details.loc {
+  width: 45%;
+  border-right: 1px solid rgba(26, 11, 46, 0.15);
+  padding-right: 10px;
+}
+
+.schedule-details.date {
+  width: 55%;
+  padding-left: 15px;
+}
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* Tablet (Stack elements differently) */
+@media (max-width: 1024px) {
+  .event-info__grid {
+    grid-template-columns: 1fr 1fr; /* 2 Columns */
+  }
+
+  /* Make the form span full width or move it */
+  .event-info__form-wrapper {
+    grid-column: span 2;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+/* Mobile (Stack everything vertically) */
+@media (max-width: 768px) {
+  .event-info__grid {
+    grid-template-columns: 1fr; /* 1 Column */
+    gap: 3rem;
+  }
+
+  .event-info__form-wrapper {
+    grid-column: span 1;
+  }
+
+  .schedule-row {
+    flex-direction: row; /* Keep row layout on mobile if space permits */
+    gap: 10px;
+  }
+
+  /* If screen is VERY small, stack the schedule row */
+  @media (max-width: 400px) {
+    .schedule-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .schedule-details.loc {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid rgba(26, 11, 46, 0.15);
+      padding-bottom: 8px;
+      margin-bottom: 8px;
+    }
+    .schedule-details.date {
+      width: 100%;
+      padding-left: 0;
+    }
+  }
+}
+
+/* --- MODAL STYLES --- */
+
+/* The Background Overlay (Hidden by default) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Dark see-through background */
+  z-index: 9999;
+
+  /* Flexbox to center the modal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Transition for fading */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(4px); /* Nice blur effect on background */
+}
+
+/* State: Open */
+.modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* The Modal Box */
+.modal-container {
+  background: #ffffff;
+  width: 90%;
+  max-width: 450px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+/* Animation: Slide up slightly when opening */
+.modal-overlay.is-open .modal-container {
+  transform: translateY(0);
+}
+
+/* Header Section */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: #2e1a5e;
+  font-size: 1.25rem;
+}
+
+/* Close Button (X) */
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: #ff0000;
+}
+
+/* Body & Form */
+.modal-body {
+  padding: 1.5rem;
+}
+
+.register-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.register-form label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.register-form input,
+.register-form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.btn--full {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 12px;
+}
+
+.form-status {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9rem;
 }
 
 /* --- SECTION TITLE STYLING --- */
@@ -114,18 +443,24 @@ body {
 }
 
 /* HERO SECTION (Dual Axis Logic) */
+/* --- HERO SECTION --- */
 .hero {
-  background: linear-gradient(to right, #f8f0ff 40%, #ffffff 40%);
-  padding: 4rem 0;
+  background-color: #f8f0ff;
+  /* padding: 4rem 0; */
   overflow: hidden;
   position: relative;
 }
+
 .hero__wrapper {
   display: flex;
+  align-items: center; /* Vertically center content */
   position: relative;
-  max-width: var(--container-width);
+  max-width: 1200px; /* Or var(--container-width) */
   margin: 0 auto;
+  padding: 0 15px;
 }
+
+/* Slide Layout */
 .hero__slide {
   display: flex;
   width: 100%;
@@ -133,16 +468,80 @@ body {
   justify-content: space-between;
   opacity: 0;
   transition: opacity 0.5s;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.hero__slide.active {
-  opacity: 1;
+  /* If you have absolute positioning logic for slides, keep it here */
   position: relative;
 }
 
-/* Dual Axis Animations */
+.hero__slide.active {
+  opacity: 1;
+}
+
+/* --- LEFT SIDE: TEXT --- */
+.hero__text-content {
+  flex: 1;
+  padding-right: 3rem; /* Space between text and image */
+  z-index: 2; /* Ensure text stays on top */
+}
+
+.hero__subtitle {
+  color: #9c27b0;
+  font-weight: 600;
+  font-style: italic;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.hero__title {
+  font-size: 3rem;
+  color: #2e1a5e; /* Deep Purple */
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero__tagline {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+/* --- RIGHT SIDE: IMAGE WITH MERGE EFFECT --- */
+.hero__image-content {
+  flex: 1.2; /* Image takes slightly more space */
+  position: relative; /* Needed for the overlay */
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* THE MAGIC TRICK: Gradient Overlay */
+.hero__image-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0; /* Start at the left edge of the image container */
+  bottom: 0;
+  width: 25%; /* The width of the fade area */
+
+  /* The Gradient: Starts with the Section BG color -> Fades to Transparent */
+  background: linear-gradient(
+    to right,
+    #f8f0ff 0%,
+    rgba(248, 240, 255, 0) 100%
+  );
+
+  z-index: 2; /* Sits on top of the image */
+  pointer-events: none; /* Allows clicking through if needed */
+}
+
+.hero__img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px; /* Softens the corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Adds depth */
+  display: block;
+}
+/*****************************************************************************/
+
+/* --- ANIMATIONS --- */
 .hero__slide.active .hero__text-content {
   animation: slideUp 0.8s ease forwards;
 }
@@ -171,30 +570,32 @@ body {
   }
 }
 
-.hero__text-content {
-  flex: 1;
-  padding-right: 2rem;
-}
-.hero__subtitle {
-  color: #9c27b0;
-  font-weight: 600;
-  font-style: italic;
-}
-.hero__title {
-  font-size: 3rem;
-  color: var(--deep-purple);
-  line-height: 1.2;
-  margin: 1rem 0;
-}
-.hero__image-content {
-  flex: 1;
-  text-align: right;
-}
-.hero__img {
-  max-width: 100%;
-  border-radius: 10px;
-}
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .hero__slide {
+    flex-direction: column-reverse; /* Text on bottom, Image on top for mobile */
+    text-align: center;
+  }
 
+  .hero__text-content {
+    padding-right: 0;
+    padding-top: 2rem;
+  }
+
+  .hero__image-content {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Remove the side fade on mobile, maybe fade bottom instead? */
+  .hero__image-content::before {
+    width: 100%;
+    height: 20%;
+    top: auto;
+    bottom: 0;
+    background: linear-gradient(to top, #f8f0ff 0%, transparent 100%);
+  }
+}
 /* STATS */
 .stats {
   padding: 3rem 0;
@@ -212,32 +613,80 @@ body {
 }
 
 /* PARTNERS MARQUEE */
-.partners {
-  padding: 2rem 0;
+/* CONTAINER */
+.partners-section {
+  padding: 4rem 0;
+  background: #f8f9fa;
   overflow: hidden;
-  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Space between the two lines */
 }
+
+/* MARQUEE STRUCTURE */
 .marquee {
   white-space: nowrap;
   overflow: hidden;
-  margin-bottom: 1.5rem;
+  padding: 10px 0; /* Padding for shadow clearance */
 }
+
 .marquee__track {
   display: flex;
-  gap: 4rem;
+  gap: 2rem;
   width: max-content;
 }
 
-/* Animations */
-.marquee--left .marquee__track {
-  animation: scrollLeft 20s linear infinite;
-}
-.marquee--right .marquee__track {
-  animation: scrollRight 20s linear infinite;
+/* --- CARD STYLING --- */
+.marquee__item {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 12px 24px;
+  min-width: 180px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Pause on hover */
-.marquee:hover .marquee__track {
+.marquee__item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-color: #2e1a5e;
+}
+
+.card-icon {
+  width: 35px;
+  height: 35px;
+  background: #f0f0f0;
+  color: #2e1a5e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* --- ANIMATIONS --- */
+
+/* Left Scroll (Row 1) */
+.marquee--left .marquee__track {
+  animation: scrollLeft 30s linear infinite;
+}
+
+/* Right Scroll (Row 2) */
+.marquee--right .marquee__track {
+  animation: scrollRight 30s linear infinite;
+}
+
+/* Pause BOTH rows on hover */
+.partners-section:hover .marquee__track {
   animation-play-state: paused;
 }
 
@@ -249,6 +698,7 @@ body {
     transform: translateX(-50%);
   }
 }
+
 @keyframes scrollRight {
   0% {
     transform: translateX(-50%);
@@ -258,39 +708,103 @@ body {
   }
 }
 
-.marquee__item {
-  font-weight: bold;
-  color: #555;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
+/* EVENT INFO (Blue Section) */
+/* --- MAIN SECTION BACKGROUND (Deep Purple) --- */
+.event-info {
+  /* The gradient covers the entire section now, not just the text box */
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  padding: 4rem 0;
+  color: #fff;
+  overflow: hidden; /* Keeps the animated pills contained */
 }
 
-/* EVENT INFO (Blue Section) */
-.event-info {
-  background: var(--deep-purple);
-  color: white;
-  padding: 4rem 0;
-  overflow: hidden;
-}
+/* 1. GRID LAYOUT */
 .event-info__grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
+  grid-template-columns: 1.2fr 1fr 1fr; /* Text | Images | Form */
   gap: 2rem;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.highlight {
-  color: #fdbb2d;
+
+/* 2. LEFT COLUMN: TEXT INFO */
+.event-info__text {
+  /* Removed specific background since the section has it now */
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-.event-card {
-  background: #ffe0b2;
-  color: #333;
-  display: inline-flex;
-  border-radius: 50px;
+
+/* Typography */
+.hero-title {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(2rem, 2.5vw, 2.8rem);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  color: #fad9a1; /* Gold/Cream text */
+}
+
+.hero-title .highlight {
+  font-size: clamp(2.5rem, 3vw, 3.5rem);
+  font-weight: 700;
+  display: block;
+  margin-top: 5px;
+  color: #ffffff; /* White text for contrast */
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  color: rgba(250, 217, 161, 0.7);
+  font-weight: 500;
+}
+
+/* SCHEDULE BOX (Cream Card) */
+.schedule-box {
+  background-color: #fad9a1; /* Cream background */
+  border-radius: 20px;
   padding: 10px 20px;
-  margin-top: 2rem;
-  gap: 1rem;
+  border: 4px solid #e8c68a; /* Gold border */
+  color: #1a0b2e; /* Dark text inside */
+  width: 100%;
+  max-width: 450px;
+}
+
+.schedule-row {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(26, 11, 46, 0.15);
+}
+.schedule-row:last-child {
+  border-bottom: none;
+}
+
+.schedule-details strong {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #1a0b2e;
+  display: block;
+}
+.schedule-details span {
+  font-size: 0.85rem;
+  color: #2e1a5e;
+}
+.schedule-details.loc {
+  width: 45%;
+  border-right: 1px solid rgba(26, 11, 46, 0.15);
+  padding-right: 10px;
+}
+.schedule-details.date {
+  width: 55%;
+  padding-left: 15px;
 }
 
 /* 1. The Viewing Window */
@@ -397,23 +911,86 @@ body {
   border-radius: 10px;
   backdrop-filter: blur(5px);
 }
+.enquiry-form .form-group {
+  margin-bottom: 1rem;
+}
+
+/* Dark Input Fields */
 .enquiry-form input,
 .enquiry-form select {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  border: none;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-}
-.enquiry-form input::placeholder {
-  color: #ddd;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1); /* Slightly lighter than container */
+  color: #fff;
+  font-size: 0.9rem;
 }
 
-.form-group {
-  /* background-color: rgba(255, 255, 255, 0.2); */
-  color: blue;
+.enquiry-form input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Fix Select dropdown color on click (browsers render options white by default) */
+.enquiry-form select option {
+  background: #302b63;
+  color: #fff;
+}
+
+/* White Submit Button */
+.btn--submit {
+  width: 100%;
+  padding: 12px;
+  background-color: #fff;
+  color: #302b63; /* Deep purple text */
+  font-weight: 800;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  transition: transform 0.2s;
+}
+
+.btn--submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes scrollUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+  /* Note: Ensure you have duplicate items in HTML for seamless loop */
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .event-info__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .event-info__form-wrapper {
+    grid-column: span 2;
+    max-width: 600px;
+    justify-self: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .event-info__grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .event-info__form-wrapper {
+    grid-column: span 1;
+  }
+  .event-window {
+    height: 300px; /* Shorter on mobile */
+  }
 }
 /* Spinner Animation */
 .loader {
@@ -427,13 +1004,6 @@ body {
   display: inline-block;
   vertical-align: middle;
   margin-left: 10px;
-}
-
-/* Button Loading State */
-.btn--submit:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-  opacity: 0.7;
 }
 
 @keyframes spin {
@@ -532,42 +1102,54 @@ video.video-bg {
 }
 
 /* --- SECTION 8: ATTRACTIONS (Diamond Grid) --- */
+/* --- SECTION LAYOUT --- */
 .attractions {
-  padding: 4rem 0;
-  background: linear-gradient(to right, #fff, #f9f9f9);
-}
-.attractions__grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
+  padding: 5rem 0;
+  /* Subtle gradient background */
+  background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+  overflow: hidden;
 }
 
-/* Diamond Logic */
+.attractions__layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap; /* responsive safety */
+}
+
+/* --- 1. LEFT: DIAMOND CLUSTER --- */
+.attractions__visuals {
+  flex: 0 0 auto;
+}
+
 .diamond-cluster {
   position: relative;
-  width: 400px;
-  height: 400px;
-  margin: 0 auto;
+  width: 320px; /* Adjusted size */
+  height: 320px;
 }
+
 .diamond {
-  width: 140px;
-  height: 140px;
+  width: 105px;
+  height: 105px;
   overflow: hidden;
-  border-radius: 15px; /* Soft rounded corners like screenshot */
+  border-radius: 15px; /* Rounded corners */
   position: absolute;
-  border: 3px solid white;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transform: rotate(45deg); /* Creates the diamond shape */
+  border: 4px solid #fff; /* Thick white border */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: rotate(45deg);
+  z-index: 1;
+  background: #eee;
 }
+
 .diamond img {
-  width: 140%; /* Compensate for rotation */
+  width: 140%;
   height: 140%;
   transform: rotate(-45deg) translate(-15%, -15%); /* Un-rotate image */
   object-fit: cover;
 }
 
-/* Positioning the diamonds */
+/* Tight positioning */
 .d-top {
   top: 0;
   left: 50%;
@@ -589,72 +1171,133 @@ video.video-bg {
   transform: translateY(-50%) rotate(45deg);
 }
 
-/* Center Logo (Star) */
-.d-center-logo {
-  width: 120px;
-  height: 120px;
-  background: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(
-    -50%,
-    -50%
-  ); /* No rotation for center container initially */
+/* --- 2. CENTER: STAR LOGO --- */
+.attractions__center-logo {
+  flex: 0 0 auto;
   z-index: 2;
-  border: none;
-  box-shadow: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.star-logo {
-  /* Simple CSS Star approximation or use an SVG image in production */
-  color: var(--deep-purple);
-  font-weight: bold;
-  font-size: 0.8rem;
+  margin: 0 1rem;
 }
 
-/* Attractions Text Side */
-.attractions__content .text-left {
-  text-align: left;
+.star-img {
+  width: 140px;
+  height: auto;
+  display: block;
+  /* Assuming the image provided in src is a transparent PNG of the star */
 }
+
+/* --- 3. RIGHT: CONTENT --- */
+.attractions__content {
+  flex: 1;
+  max-width: 500px;
+}
+
+.section-title.text-left {
+  text-align: left;
+  font-size: 2.2rem;
+  color: #2e1a5e; /* Deep Purple */
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+/* Tabs */
 .tab-buttons {
   margin-bottom: 2rem;
   display: flex;
   gap: 1rem;
 }
+
 .tab-btn {
-  padding: 10px 20px;
-  background: transparent;
-  border: 1px solid var(--deep-purple);
-  color: var(--deep-purple);
+  padding: 12px 24px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 1px solid #2e1a5e;
   cursor: pointer;
-  font-weight: bold;
   border-radius: 4px;
-}
-.tab-btn.active {
-  background: var(--deep-purple);
-  color: white;
-}
-.tab-content h3 {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-  color: #333;
-}
-.tab-content p {
-  color: #666;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-.btn--arrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
 }
 
+.tab-btn.active {
+  background: #2e1a5e;
+  color: #fff;
+}
+
+.tab-btn:not(.active) {
+  background: transparent; /* Light purple tint */
+  color: #2e1a5e;
+}
+
+/* Tab Text */
+.tab-content h3 {
+  font-size: 1.4rem;
+  color: #000;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.tab-content p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* --- CUSTOM 2-PART BUTTON --- */
+.custom-arrow-btn {
+  display: inline-flex;
+  text-decoration: none;
+  align-items: stretch;
+  height: 44px;
+}
+
+.btn-icon {
+  background-color: #2e1a5e;
+  color: #fff;
+  width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  border-radius: 4px 0 0 4px; /* Round left corners */
+}
+
+.btn-text {
+  background-color: transparent;
+  color: #2e1a5e;
+  border: 1px solid #2e1a5e;
+  border-left: none; /* Connect to icon */
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  border-radius: 0 4px 4px 0; /* Round right corners */
+  letter-spacing: 1px;
+}
+
+.custom-arrow-btn:hover .btn-icon {
+  background-color: #4a2c8a;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .attractions__layout {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .section-title.text-left {
+    text-align: center;
+  }
+
+  .tab-buttons {
+    justify-content: center;
+  }
+
+  .diamond-cluster {
+    margin: 0 auto 2rem;
+  }
+}
 /* SCHOOL TYPES (Grid to Slider) */
 .school-types {
   padding: 4rem 0;
@@ -738,32 +1381,55 @@ video.video-bg {
 }
 
 /* --- SECTION 9: REVIEWS --- */
+/* --- SECTION 9: REVIEWS --- */
 .reviews {
   padding: 4rem 0;
   background: #fff;
 }
+
 .reviews-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
 }
+
+/* Make grid responsive (Optional but recommended) */
+@media (max-width: 900px) {
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .review-card {
   position: relative;
   border-radius: 12px;
   overflow: hidden;
-  cursor: pointer;
+  background: #000; /* Black background looks better for videos */
+  /* Removed 'cursor: pointer' because video controls handle the clicks */
 }
-.review-card img {
+
+.review-card video {
   width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video fills the card box nicely */
   display: block;
-  transition: 0.3s;
+  /* Optional: Smooth transition if you want hover effects */
+  transition: transform 0.3s ease;
 }
-.review-card:hover img {
-  transform: scale(1.05);
+
+/* Optional: Slight zoom on hover (Matches your previous design) */
+.review-card:hover video {
+  transform: scale(1.02);
 }
+
 .play-overlay {
   position: absolute;
-  bottom: 10px;
+  bottom: 15px; /* Moved up slightly to avoid overlapping video timeline controls */
   left: 10px;
   background: white;
   padding: 5px 12px;
@@ -774,6 +1440,10 @@ video.video-bg {
   display: flex;
   align-items: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+  /* CRITICAL: Allows clicks to pass through this text to the video play button */
+  pointer-events: none;
+  z-index: 2;
 }
 
 /* --- SECTION 10: GALLERY --- */
