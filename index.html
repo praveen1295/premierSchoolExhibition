@@ -13,6 +13,8 @@
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
+    <!-- Header -->
+
     <header class="header">
       <div class="container header__container">
         <div class="header__logo">
@@ -27,13 +29,10 @@
             <li class="nav__item">
               <a href="../index.html" class="nav__link active">Home</a>
             </li>
-            <li class="nav__item">
-              <a href="../pages/about.html" class="nav__link">About</a>
-            </li>
+
             <li class="nav__item">
               <a href="../pages/blog-lists.html" class="nav__link">Blog</a>
             </li>
-
             <li class="nav__item mobile-only-btn">
               <button class="btn btn--white js-open-modal">
                 Register Now &rarr;
@@ -48,7 +47,6 @@
               Register Now &rarr;
             </button>
           </div>
-
           <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
             <span></span>
             <span></span>
@@ -464,34 +462,10 @@
           poster="https://placehold.co/1200x600/2E1A5E/FFF?text=Loading+Video..."
         >
           <source src="./assets/video1.mp4" type="video/mp4" />
-          <!-- "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" -->
           Your browser does not support the video tag.
         </video>
       </section>
 
-      <!-- <section class="hero" aria-label="Hero Slider">
-        <div class="hero__wrapper" id="hero-slider">
-          <div class="hero__slide active">
-            <div class="hero__text-content" data-animate="vertical">
-              <span class="hero__subtitle"
-                >Exciting Opportunities for Parents!</span
-              >
-              <h1 class="hero__title">
-                Pre-schedule Your <br />School Appointments
-              </h1>
-              <p class="hero__tagline">To Avoid Rush</p>
-              <a href="#schedule" class="btn btn--outline">Pre-Schedule Now</a>
-            </div>
-            <div class="hero__image-content" data-animate="horizontal">
-              <img
-                src="https://placehold.co/800x600/e0d4fc/333?text=Parents+Meeting"
-                alt="Parents discussing with school representative"
-                class="hero__img"
-              />
-            </div>
-          </div>
-        </div>
-      </section> -->
       <!-- diamond logic -->
 
       <section class="hero" aria-label="Hero Slider">
@@ -514,105 +488,33 @@
                 alt="Parents discussing"
                 class="hero__img"
               />
-              <!-- "https://placehold.co/800x600/e0d4fc/333?text=Parents+Meeting" -->
             </div>
           </div>
         </div>
       </section>
-      <!-- <section class="attractions">
-        <div class="container attractions__grid">
-          <div class="attractions__visuals">
-            <div class="diamond-cluster">
-              <div class="diamond d-top">
-                <img
-                  src="https://placehold.co/200x200/pink/fff?text=Singing"
-                  alt="Kid 1"
-                />
-              </div>
-              <div class="diamond d-left">
-                <img
-                  src="https://placehold.co/200x200/orange/fff?text=Stage"
-                  alt="Kid 2"
-                />
-              </div>
-              <div class="diamond d-center-logo">
-                <div class="star-logo">
-                  <span>PREMIER<br />KidZ<br />AWARDS</span>
-                </div>
-              </div>
-              <div class="diamond d-right">
-                <img
-                  src="https://placehold.co/200x200/blue/fff?text=Prize"
-                  alt="Kid 3"
-                />
-              </div>
-              <div class="diamond d-bottom">
-                <img
-                  src="https://placehold.co/200x200/green/fff?text=Group"
-                  alt="Kid 4"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div class="attractions__content">
-            <h2 class="section-heading text-left">
-              Other Attractions for <br />Parents & Kids
-            </h2>
-
-            <div class="tab-buttons">
-              <button class="tab-btn active">PREMIER KIDZ AWARDS</button>
-              <button class="tab-btn">THE PARENT EXCHANGE</button>
-            </div>
-
-            <div class="tab-content">
-              <h3>Premier Kidz Awards</h3>
-              <p>
-                A prestigious platform celebrating young talent and building
-                confidence by giving children the spotlight to shine.
-              </p>
-              <a href="#" class="btn btn--outline-dark btn--arrow"
-                >TO KNOW MORE ↗</a
-              >
-            </div>
-          </div>
-        </div>
-      </section> -->
 
       <section class="attractions">
         <div class="container attractions__layout">
           <div class="attractions__visuals">
             <div class="diamond-cluster">
               <div class="diamond d-top">
-                <img
-                  src="https://placehold.co/200x200/pink/fff?text=Singing"
-                  alt="Kid 1"
-                />
+                <img src="./assets/heroImg1.png" alt="Kid 1" />
               </div>
               <div class="diamond d-left">
-                <img
-                  src="https://placehold.co/200x200/orange/fff?text=Stage"
-                  alt="Kid 2"
-                />
+                <img src="./assets/heroImg1.png" alt="Kid 2" />
               </div>
               <div class="diamond d-right">
-                <img
-                  src="https://placehold.co/200x200/blue/fff?text=Prize"
-                  alt="Kid 3"
-                />
+                <img src="./assets/heroImg1.png" alt="Kid 3" />
               </div>
               <div class="diamond d-bottom">
-                <img
-                  src="https://placehold.co/200x200/green/fff?text=Group"
-                  alt="Kid 4"
-                />
+                <img src="./assets/heroImg1.png" alt="Kid 4" />
               </div>
             </div>
           </div>
 
           <div class="attractions__center-logo">
             <img
-              src="https://placehold.co/150x150/fff/333?text=Premier+Kidz+Star+Logo"
+              src="./assets/starImg.png"
               alt="Premier Kidz Awards Logo"
               class="star-img"
             />
@@ -652,9 +554,7 @@
           <div class="school-types__grid">
             <article
               class="school-card"
-              style="
-                background-image: url('https://placehold.co/300x400/333/999');
-              "
+              style="background-image: url('./assets/heroImg1.png')"
             >
               <div class="school-card__overlay">
                 <h3>Pre-Schools & Early Learning</h3>
@@ -663,9 +563,7 @@
             </article>
             <article
               class="school-card"
-              style="
-                background-image: url('https://placehold.co/300x400/444/aaa');
-              "
+              style="background-image: url('./assets/heroImg1.png')"
             >
               <div class="school-card__overlay">
                 <h3>K-12 CBSE Day Schools</h3>
@@ -674,9 +572,7 @@
             </article>
             <article
               class="school-card"
-              style="
-                background-image: url('https://placehold.co/300x400/555/bbb');
-              "
+              style="background-image: url('./assets/heroImg1.png')"
             >
               <div class="school-card__overlay">
                 <h3>Heritage to New-Age Schools</h3>
@@ -685,9 +581,7 @@
             </article>
             <article
               class="school-card"
-              style="
-                background-image: url('https://placehold.co/300x400/666/ccc');
-              "
+              style="background-image: url('./assets/heroImg1.png')"
             >
               <div class="school-card__overlay">
                 <h3>International Curriculum Schools</h3>
@@ -747,14 +641,14 @@
           <div class="reviews-grid">
             <div class="review-card">
               <video
+                autoplay
+                muted
+                loop
                 controls
                 playsinline
                 poster="https://placehold.co/400x250/333/fff?text=Parent+Review+1"
               >
-                <source
-                  src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
-                  type="video/mp4"
-                />
+                <source src="./assets/video1.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <div class="play-overlay"><span>▶ Visitor's Review</span></div>
@@ -762,42 +656,42 @@
 
             <div class="review-card">
               <video
+                autoplay
+                muted
+                loop
                 controls
                 playsinline
-                poster="https://placehold.co/400x250/444/fff?text=Parent+Review+2"
+                poster="https://placehold.co/400x250/333/fff?text=Parent+Review+1"
               >
-                <source
-                  src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
-                  type="video/mp4"
-                />
+                <source src="./assets/video1.mp4" type="video/mp4" />
               </video>
               <div class="play-overlay"><span>▶ Visitor's Review</span></div>
             </div>
 
             <div class="review-card">
               <video
+                autoplay
+                muted
+                loop
                 controls
                 playsinline
-                poster="https://placehold.co/400x250/555/fff?text=Parent+Review+3"
+                poster="https://placehold.co/400x250/333/fff?text=Parent+Review+1"
               >
-                <source
-                  src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4"
-                  type="video/mp4"
-                />
+                <source src="./assets/video1.mp4" type="video/mp4" />
               </video>
               <div class="play-overlay"><span>▶ Visitor's Review</span></div>
             </div>
 
             <div class="review-card">
               <video
+                autoplay
+                muted
+                loop
                 controls
                 playsinline
-                poster="https://placehold.co/400x250/666/fff?text=Parent+Review+4"
+                poster="https://placehold.co/400x250/333/fff?text=Parent+Review+1"
               >
-                <source
-                  src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4"
-                  type="video/mp4"
-                />
+                <source src="./assets/video1.mp4" type="video/mp4" />
               </video>
               <div class="play-overlay"><span>▶ Visitor's Review</span></div>
             </div>
@@ -806,29 +700,27 @@
       </section>
 
       <section class="gallery">
-        <h2 class="section-title">Gallery</h2>
-        <div class="gallery-container">
-          <div class="gallery-track">
-            <img
-              src="https://placehold.co/400x300/2E1A5E/FFF?text=Event+1"
-              alt="Gallery 1"
-            />
-            <img
-              src="https://placehold.co/400x300/E1BEE7/333?text=Event+2"
-              alt="Gallery 2"
-            />
-            <img
-              src="https://placehold.co/400x300/FFB347/333?text=Event+3"
-              alt="Gallery 3"
-            />
-            <img
-              src="https://placehold.co/400x300/003366/FFF?text=Event+4"
-              alt="Gallery 4"
-            />
-            <img
-              src="https://placehold.co/400x300/2E1A5E/FFF?text=Event+5"
-              alt="Gallery 5"
-            />
+        <div class="container">
+          <h2 class="section-title text-center">Gallery</h2>
+
+          <div class="gallery-curve-wrapper">
+            <div class="gallery-track">
+              <div class="gallery-item">
+                <img src="./assets/heroImg1.png" alt="Gallery 1" />
+              </div>
+              <div class="gallery-item">
+                <img src="./assets/heroImg1.png" alt="Gallery 1" />
+              </div>
+              <div class="gallery-item">
+                <img src="./assets/heroImg1.png" alt="Gallery 1" />
+              </div>
+              <div class="gallery-item">
+                <img src="./assets/heroImg1.png" alt="Gallery 1" />
+              </div>
+              <div class="gallery-item">
+                <img src="./assets/heroImg1.png" alt="Gallery 1" />
+              </div>
+            </div>
           </div>
         </div>
       </section>

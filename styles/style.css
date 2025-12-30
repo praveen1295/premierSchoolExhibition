@@ -3,7 +3,7 @@
   --deep-purple: #2e1a5e;
   --light-purple: #f3e5f5;
   --accent-blue: #0056b3;
-  --card-purple: #e2dcfc; /* Light purple for highlight cards */
+  --card-purple: #e2dcfc;
   --text-dark: #333;
   --white: #ffffff;
   --container-width: 1200px;
@@ -78,9 +78,6 @@ body {
 
 /* HEADER */
 
-/* --- HEADER SECTION --- */
-/* --- HEADER LAYOUT --- */
-/* --- HEADER MAIN --- */
 .header {
   padding: 0.8rem 0;
   background: linear-gradient(90deg, #120836 0%, #301b63 50%, #120836 100%);
@@ -107,11 +104,8 @@ body {
   border-radius: 4px;
 }
 
-/* --- NAVIGATION (Desktop) --- */
 .header__nav {
-  /* ALIGNMENT FIX: Pushes nav to the left, Next to logo */
   margin-left: 3rem;
-  /* ALIGNMENT FIX: Pushes the button (next sibling) to the far right */
   margin-right: auto;
 }
 
@@ -207,7 +201,6 @@ body {
 
 /* --- RESPONSIVE STYLES (Mobile) --- */
 @media (max-width: 900px) {
-  /* 1. Show Hamburger, Hide Desktop Button */
   .hamburger {
     display: flex;
   }
@@ -223,12 +216,12 @@ body {
   .header__nav {
     position: fixed;
     top: 0;
-    right: -100%; /* Hidden by default */
+    right: -100%;
     width: 250px;
     height: 100vh;
-    background: #301b63; /* Match header theme */
+    background: #301b63;
     padding: 80px 20px 20px;
-    margin: 0; /* Reset margins */
+    margin: 0;
     transition: right 0.3s ease-in-out;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
     z-index: 999;
@@ -266,47 +259,46 @@ body {
 /* --- THE WHITE "REGISTER NOW" BUTTON --- */
 .btn--white {
   background-color: #ffffff;
-  color: #003366; /* Dark Blue text to match the logo theme */
-  font-weight: 700; /* Bold text */
+  color: #003366;
+  font-weight: 700;
   font-size: 1rem;
-  padding: 10px 28px; /* Horizontal padding for pill shape */
-  border-radius: 50px; /* Pill shape */
+  padding: 10px 28px;
+  border-radius: 50px;
   border: none;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 8px; /* Space between text and arrow */
+  gap: 8px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Hover Effect */
 .btn--white:hover {
-  transform: translateY(-2px); /* Lifts up slightly */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increased shadow */
-  background-color: #f0f8ff; /* Very light blue tint on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  background-color: #f0f8ff;
 }
 
 /* --- SECTION: EVENT INFO --- */
 .event-info {
   padding: 4rem 0;
-  background-color: #f8f9fa; /* Light background for contrast */
+  background-color: #f8f9fa;
 }
 
 /* 1. THE GRID LAYOUT (Holds Text, Slider, and Form) */
 .event-info__grid {
   display: grid;
-  /* Desktop: 3 Columns (Text gets slightly more space) */
   grid-template-columns: 1.2fr 1fr 0.8fr;
   gap: 2rem;
-  align-items: center; /* Vertically center all items */
+  align-items: center;
 }
 
 /* 2. THE TEXT CONTAINER (Deep Purple Box) */
 .event-info__text {
   background: transparent;
-  padding: 2.5rem 2rem; /* Balanced padding */
-  border-radius: 20px; /* Rounded corners to match design */
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
   color: #fad9a1;
   font-family: "Poppins", sans-serif;
 
@@ -314,7 +306,6 @@ body {
   width: 100%;
   box-shadow: 0 10px 30px rgba(15, 12, 41, 0.2);
 
-  /* Flex layout to stack title and schedule box neatly */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -322,7 +313,6 @@ body {
 
 /* 3. TYPOGRAPHY MANAGEMENT (Responsive Fonts) */
 .hero-title {
-  /* clamp(min, preferred, max) - Fluid font sizing */
   font-size: clamp(1.8rem, 2.5vw, 2.5rem);
   line-height: 1.2;
   margin-bottom: 0.5rem;
@@ -330,12 +320,11 @@ body {
 }
 
 .hero-title .highlight {
-  /* Make highlight slightly larger than base title */
   font-size: clamp(2.2rem, 3vw, 3rem);
   font-weight: 700;
   display: block;
   margin-top: 5px;
-  color: #ffffff; /* Brighter white/gold for pop */
+  color: #ffffff;
 }
 
 .hero-subtitle {
@@ -343,7 +332,7 @@ body {
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 2rem;
-  color: rgba(250, 217, 161, 0.8); /* Slight opacity */
+  color: rgba(250, 217, 161, 0.8);
   font-weight: 500;
 }
 
@@ -354,7 +343,6 @@ body {
   padding: 5px 20px;
   border: 4px solid #e8c68a;
 
-  /* Fluid Width: Fits inside the purple box regardless of screen size */
   width: 100%;
   max-width: 100%;
 
@@ -408,7 +396,6 @@ body {
 
 /* --- RESPONSIVE BREAKPOINTS --- */
 
-/* Tablet (Stack elements differently) */
 @media (max-width: 1024px) {
   .event-info__grid {
     grid-template-columns: 1fr 1fr; /* 2 Columns */
@@ -426,7 +413,7 @@ body {
 /* Mobile (Stack everything vertically) */
 @media (max-width: 768px) {
   .event-info__grid {
-    grid-template-columns: 1fr; /* 1 Column */
+    grid-template-columns: 1fr;
     gap: 3rem;
   }
 
@@ -435,7 +422,7 @@ body {
   }
 
   .schedule-row {
-    flex-direction: row; /* Keep row layout on mobile if space permits */
+    flex-direction: row;
     gap: 10px;
   }
 
@@ -461,26 +448,23 @@ body {
 
 /* --- MODAL STYLES --- */
 
-/* The Background Overlay (Hidden by default) */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Dark see-through background */
+  background: rgba(0, 0, 0, 0.6);
   z-index: 9999;
 
-  /* Flexbox to center the modal */
   display: flex;
   align-items: center;
   justify-content: center;
 
-  /* Transition for fading */
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease-in-out;
-  backdrop-filter: blur(4px); /* Nice blur effect on background */
+  backdrop-filter: blur(4px);
 }
 
 /* State: Open */
@@ -501,7 +485,6 @@ body {
   overflow: hidden;
 }
 
-/* Animation: Slide up slightly when opening */
 .modal-overlay.is-open .modal-container {
   transform: translateY(0);
 }
@@ -577,16 +560,15 @@ body {
 
 /* --- SECTION TITLE STYLING --- */
 .section-title {
-  color: var(--deep-purple); /* Matches the dark purple brand color */
-  font-size: 2.2rem; /* Large and readable */
-  font-weight: 700; /* Bold weight */
-  text-align: center; /* Centered alignment */
-  margin-bottom: 2.5rem; /* Space below the title */
-  position: relative; /* Ready for decorative elements if needed */
+  color: var(--deep-purple);
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
   line-height: 1.3;
 }
 
-/* Variant: White Title (for dark backgrounds like Highlights section) */
 .section-title.text-white {
   color: #ffffff;
 }
@@ -596,20 +578,18 @@ body {
   text-align: left;
 }
 
-/* HERO SECTION (Dual Axis Logic) */
 /* --- HERO SECTION --- */
 .hero {
   background-color: #f8f0ff;
-  /* padding: 4rem 0; */
   overflow: hidden;
   position: relative;
 }
 
 .hero__wrapper {
   display: flex;
-  align-items: center; /* Vertically center content */
+  align-items: center;
   position: relative;
-  max-width: 1200px; /* Or var(--container-width) */
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -622,7 +602,6 @@ body {
   justify-content: space-between;
   opacity: 0;
   transition: opacity 0.5s;
-  /* If you have absolute positioning logic for slides, keep it here */
   position: relative;
 }
 
@@ -633,8 +612,8 @@ body {
 /* --- LEFT SIDE: TEXT --- */
 .hero__text-content {
   flex: 1;
-  padding-right: 3rem; /* Space between text and image */
-  z-index: 2; /* Ensure text stays on top */
+  padding-right: 3rem;
+  z-index: 2;
 }
 
 .hero__subtitle {
@@ -660,8 +639,8 @@ body {
 
 /* --- RIGHT SIDE: IMAGE WITH MERGE EFFECT --- */
 .hero__image-content {
-  flex: 1.2; /* Image takes slightly more space */
-  position: relative; /* Needed for the overlay */
+  flex: 1.2;
+  position: relative;
   display: flex;
   justify-content: flex-end;
 }
@@ -671,9 +650,9 @@ body {
   content: "";
   position: absolute;
   top: 0;
-  left: 0; /* Start at the left edge of the image container */
+  left: 0;
   bottom: 0;
-  width: 25%; /* The width of the fade area */
+  width: 25%;
 
   /* The Gradient: Starts with the Section BG color -> Fades to Transparent */
   background: linear-gradient(
@@ -682,15 +661,15 @@ body {
     rgba(248, 240, 255, 0) 100%
   );
 
-  z-index: 2; /* Sits on top of the image */
-  pointer-events: none; /* Allows clicking through if needed */
+  z-index: 2;
+  pointer-events: none;
 }
 
 .hero__img {
   max-width: 100%;
   height: auto;
-  border-radius: 12px; /* Softens the corners */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Adds depth */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   display: block;
 }
 /*****************************************************************************/
@@ -766,7 +745,6 @@ body {
   color: goldenrod;
 }
 
-/* PARTNERS MARQUEE */
 /* CONTAINER */
 .partners-section {
   padding: 4rem 0;
@@ -774,14 +752,14 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* Space between the two lines */
+  gap: 1.5rem;
 }
 
 /* MARQUEE STRUCTURE */
 .marquee {
   white-space: nowrap;
   overflow: hidden;
-  padding: 10px 0; /* Padding for shadow clearance */
+  padding: 10px 0;
 }
 
 .marquee__track {
@@ -829,17 +807,14 @@ body {
 
 /* --- ANIMATIONS --- */
 
-/* Left Scroll (Row 1) */
 .marquee--left .marquee__track {
   animation: scrollLeft 30s linear infinite;
 }
 
-/* Right Scroll (Row 2) */
 .marquee--right .marquee__track {
   animation: scrollRight 30s linear infinite;
 }
 
-/* Pause BOTH rows on hover */
 .partners-section:hover .marquee__track {
   animation-play-state: paused;
 }
@@ -862,20 +837,18 @@ body {
   }
 }
 
-/* EVENT INFO (Blue Section) */
 /* --- MAIN SECTION BACKGROUND (Deep Purple) --- */
 .event-info {
-  /* The gradient covers the entire section now, not just the text box */
   background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
   padding: 4rem 0;
   color: #fff;
-  overflow: hidden; /* Keeps the animated pills contained */
+  overflow: hidden;
 }
 
 /* 1. GRID LAYOUT */
 .event-info__grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr; /* Text | Images | Form */
+  grid-template-columns: 1.2fr 1fr 1fr;
   gap: 2rem;
   align-items: center;
   max-width: 1200px;
@@ -884,7 +857,6 @@ body {
 
 /* 2. LEFT COLUMN: TEXT INFO */
 .event-info__text {
-  /* Removed specific background since the section has it now */
   background: transparent;
   padding: 0;
   box-shadow: none;
@@ -899,7 +871,7 @@ body {
   font-size: clamp(2rem, 2.5vw, 2.8rem);
   line-height: 1.1;
   margin-bottom: 0.5rem;
-  color: #fad9a1; /* Gold/Cream text */
+  color: #fad9a1;
 }
 
 .hero-title .highlight {
@@ -907,7 +879,7 @@ body {
   font-weight: 700;
   display: block;
   margin-top: 5px;
-  color: #ffffff; /* White text for contrast */
+  color: #ffffff;
 }
 
 .hero-subtitle {
@@ -921,11 +893,11 @@ body {
 
 /* SCHEDULE BOX (Cream Card) */
 .schedule-box {
-  background-color: #fad9a1; /* Cream background */
+  background-color: #fad9a1;
   border-radius: 20px;
   padding: 10px 20px;
-  border: 4px solid #e8c68a; /* Gold border */
-  color: #1a0b2e; /* Dark text inside */
+  border: 4px solid #e8c68a;
+  color: #1a0b2e;
   width: 100%;
   max-width: 450px;
 }
@@ -965,7 +937,7 @@ body {
 .event-window {
   width: 100%;
   max-width: 500px;
-  height: 400px; /* Matches height of ONE item */
+  height: 400px;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
@@ -994,10 +966,6 @@ body {
   flex-direction: column;
   width: 100%;
 
-  /* linear = constant speed (no pauses) 
-     infinite = loops forever
-     10s = Adjust this number to control speed
-  */
   animation: smoothScroll 10s linear infinite;
 }
 
@@ -1047,10 +1015,6 @@ body {
     transform: translateY(0);
   }
   100% {
-    /* We move -50% because the track contains 2 full sets.
-       Once we scroll past the first set (50% of track), 
-       we are visually identical to the start position.
-    */
     transform: translateY(-50%);
   }
 }
@@ -1226,24 +1190,20 @@ body {
   align-items: center;
   justify-content: center;
   margin-bottom: 4rem;
-  background: #000; /* Black background while loading */
+  background: #000;
 }
 
 /* Updated to target the video tag specifically */
 video.video-bg {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures video fills the box without stretching */
+  object-fit: cover;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
 }
 
-/* OPTIONAL: If you still want a dark tint over the video 
-   (but want controls to work), use this class. 
-   You would need to add <div class="video-tint"></div> in HTML.
-*/
 .video-tint {
   position: absolute;
   top: 0;
@@ -1279,7 +1239,7 @@ video.video-bg {
 
 .diamond-cluster {
   position: relative;
-  width: 320px; /* Adjusted size */
+  width: 320px;
   height: 320px;
 }
 
@@ -1287,7 +1247,7 @@ video.video-bg {
   width: 105px;
   height: 105px;
   overflow: hidden;
-  border-radius: 15px; /* Rounded corners */
+  border-radius: 15px;
   position: absolute;
   border: 4px solid #fff; /* Thick white border */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -1333,7 +1293,7 @@ video.video-bg {
 }
 
 .star-img {
-  width: 140px;
+  width: 240px;
   height: auto;
   display: block;
   /* Assuming the image provided in src is a transparent PNG of the star */
@@ -1572,7 +1532,6 @@ video.video-bg {
   height: 100%;
   object-fit: cover; /* Ensures the video fills the card box nicely */
   display: block;
-  /* Optional: Smooth transition if you want hover effects */
   transition: transform 0.3s ease;
 }
 
@@ -1595,39 +1554,76 @@ video.video-bg {
   align-items: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 
-  /* CRITICAL: Allows clicks to pass through this text to the video play button */
   pointer-events: none;
   z-index: 2;
 }
 
-/* --- SECTION 10: GALLERY --- */
+/* --- GALLERY SECTION --- */
 .gallery {
-  padding: 4rem 0 0;
+  padding: 4rem 0;
+  background: #fff;
   overflow: hidden;
 }
-.gallery-container {
-  margin-top: 2rem;
-  width: 100%;
-  /* Create the curved visual effect using clip-path or border-radius on container */
-  padding: 20px 0;
-  position: relative;
+
+.gallery .section-title {
+  color: var(--deep-purple);
+  margin-bottom: 2rem;
+  font-weight: 800;
+  font-size: 2.2rem;
 }
-/* Optional: Curved perspective effect */
+
+/* 1. The Wrapper that creates the Curve Shape */
+.gallery-curve-wrapper {
+  width: 100%;
+  padding: 10px 0;
+  clip-path: polygon(0% 0%, 50% 8%, 100% 0%, 100% 100%, 50% 92%, 0% 100%);
+
+  background: transparent;
+  transition: clip-path 0.3s ease;
+}
+
+/* 2. The Scrolling Track */
 .gallery-track {
   display: flex;
-  gap: 10px;
+  gap: 15px; /* Space between images */
   overflow-x: auto;
-  padding-bottom: 20px;
-  scrollbar-width: none; /* Hide scrollbar Firefox */
+  scroll-behavior: smooth;
+
+  /* Hide Scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  padding-bottom: 20px; /* Space for scroll interaction */
 }
+
 .gallery-track::-webkit-scrollbar {
-  display: none; /* Hide scrollbar Chrome */
+  display: none; /* Chrome/Safari */
 }
-.gallery-track img {
-  height: 300px;
-  flex: 0 0 auto;
-  border-radius: 0;
+
+/* 3. The Images */
+.gallery-item {
+  flex: 0 0 60%; /* Shows about 1.5 images at a time on desktop */
+  height: 400px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .gallery-curve-wrapper {
+    clip-path: polygon(0% 0%, 50% 3%, 100% 0%, 100% 100%, 50% 97%, 0% 100%);
+  }
+
+  .gallery-item {
+    flex: 0 0 85%; /* Show mostly one image on mobile */
+    height: 250px;
+  }
 }
 
 /* FOOTER */
@@ -1637,7 +1633,6 @@ video.video-bg {
   background: linear-gradient(90deg, #120836 0%, #301b63 50%, #120836 100%);
   color: #fff;
   padding-top: 3rem;
-  /* Bottom padding removed because the white bar handles it */
   padding-bottom: 0;
   font-family: "Poppins", sans-serif;
 }
