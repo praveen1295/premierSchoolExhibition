@@ -24,11 +24,42 @@
           />
         </div>
 
-        <button id="openModalBtn" class="btn btn--white js-open-modal">
-          Register Now &rarr;
-        </button>
+        <nav class="header__nav" id="navbar">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="../index.html" class="nav__link active">Home</a>
+            </li>
+            <li class="nav__item">
+              <a href="../pages/about.html" class="nav__link">About</a>
+            </li>
+            <li class="nav__item">
+              <a href="../pages/blog-lists.html" class="nav__link">Blog</a>
+            </li>
+
+            <li class="nav__item mobile-only-btn">
+              <button class="btn btn--white js-open-modal">
+                Register Now &rarr;
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="header__actions">
+          <div class="header__btn-wrapper desktop-only-btn">
+            <button id="openModalBtn" class="btn btn--white js-open-modal">
+              Register Now &rarr;
+            </button>
+          </div>
+
+          <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
     </header>
+
     <div id="registerModal" class="modal-overlay" aria-hidden="true">
       <div class="modal-container">
         <div class="modal-header">
@@ -446,4 +477,15 @@
       </div>
     </footer>
   </body>
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+  ></script>
+  <script type="text/javascript">
+    (function () {
+      // Initialize EmailJS with your Public Key (Get this from emailjs.com)
+      emailjs.init("YOUR_PUBLIC_KEY_HERE");
+    })();
+  </script>
+  <script src="../scripts/main.js" defer></script>
 </html>

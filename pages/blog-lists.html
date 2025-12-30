@@ -20,11 +20,42 @@
           />
         </div>
 
-        <button id="openModalBtn" class="btn btn--white js-open-modal">
-          Register Now &rarr;
-        </button>
+        <nav class="header__nav" id="navbar">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="../index.html" class="nav__link active">Home</a>
+            </li>
+            <li class="nav__item">
+              <a href="../pages/about.html" class="nav__link">About</a>
+            </li>
+            <li class="nav__item">
+              <a href="../pages/blog-lists.html" class="nav__link">Blog</a>
+            </li>
+
+            <li class="nav__item mobile-only-btn">
+              <button class="btn btn--white js-open-modal">
+                Register Now &rarr;
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="header__actions">
+          <div class="header__btn-wrapper desktop-only-btn">
+            <button id="openModalBtn" class="btn btn--white js-open-modal">
+              Register Now &rarr;
+            </button>
+          </div>
+
+          <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
     </header>
+
     <div id="registerModal" class="modal-overlay" aria-hidden="true">
       <div class="modal-container">
         <div class="modal-header">
@@ -90,30 +121,50 @@
       </div>
     </div>
     <div class="blog-header">
-      <div class="container">
-        <h1 class="blog-title">
-          Read Our <br /><span class="text-gold">Latest Blogs</span>
-        </h1>
-        <div>
-          <svg
-            class="squiggly-line"
-            width="60"
-            height="20"
-            viewBox="0 0 60 20"
-            fill="none"
-          >
+      <div class="header-bg-pattern"></div>
+      <h1 class="blog-title">
+        Read Our <span class="text-gold">Latest Blogs</span>
+      </h1>
+
+      <div class="container relative-container">
+        <div class="decor-dots">
+          <span></span><span></span><span></span> <span></span><span></span
+          ><span></span> <span></span><span></span><span></span> <span></span
+          ><span></span><span></span>
+        </div>
+
+        <div class="decor-squiggle">
+          <svg width="80" height="20" viewBox="0 0 60 20" fill="none">
             <path
               d="M2 10 L10 2 L18 10 L26 2 L34 10 L42 2 L50 10 L58 2"
               stroke="#FAD7A0"
               stroke-width="3"
               stroke-linecap="round"
+              stroke-linejoin="round"
             />
           </svg>
         </div>
       </div>
-      <div class="search-bar">
-        <span class="search-icon">🔍</span>
-        <input type="text" placeholder="Search for latest blogs..." />
+
+      <div class="search-bar-container">
+        <div class="search-bar">
+          <svg
+            class="search-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" placeholder="Search for latest blogs..." />
+        </div>
       </div>
     </div>
 
@@ -129,138 +180,170 @@
         <button class="filter-btn">More</button>
       </nav>
 
-      <section class="featured-post">
-        <article class="blog-card featured">
+      <section class="featured-section">
+        <article class="blog-card featured-card">
           <div class="card-image">
-            <img src="https://placehold.co/800x400" alt="Featured Blog" />
+            <img
+              src="https://placehold.co/800x500/2E1A5E/FFF?text=Graduation"
+              alt="Featured Blog"
+            />
           </div>
           <div class="card-content">
-            <div class="author">
-              <div class="author-icon">👤</div>
-              <span>By Pritam Rathi</span>
-            </div>
-            <h2 class="card-title">
+            <h2 class="card-title-lg">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry.
             </h2>
-            <div class="meta-info">2ND MAY 2025 | 6 min read</div>
+            <div class="author-meta">
+              <span class="icon">👤</span> <span>By Pritam Rathi</span>
+            </div>
+            <div class="date-meta">2ND MAY 2025 | 6 min read</div>
             <p class="excerpt">
               Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the indu...
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s...
             </p>
-            <a href="#" class="btn-read-more">READ MORE ↗</a>
+            <a href="./blog-detail.html" class="btn-read-more">READ MORE ↗</a>
           </div>
         </article>
       </section>
 
       <section class="blog-section">
-        <h3 class="section-heading-left">Latest Blogs</h3>
-        <div class="horizontal-scroll">
+        <h3 class="section-heading">Latest Blogs</h3>
+
+        <div class="blogs-grid latest-vertical-scroll">
           <article class="blog-card white-card">
             <div class="card-image">
-              <img src="https://placehold.co/400x250" alt="Blog 1" />
+              <img
+                src="https://placehold.co/400x250/FFB347/333?text=Child+Learning"
+                alt="Blog 1"
+              />
             </div>
             <div class="card-content">
-              <div class="author">
-                <div class="author-icon-dark">👤</div>
-                <span>By Pritam Rathi</span>
+              <div class="author-meta">
+                <span class="icon">👤</span> <span>By Pritam Rathi</span>
               </div>
               <h4 class="card-title-sm">
                 Lorem Ipsum is simply dummy text of the printing.
               </h4>
-              <div class="meta-info">2ND MAY 2025 | 6 min read</div>
+              <div class="date-meta">2ND MAY 2025 | 6 min read</div>
               <p class="excerpt">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry...
+                Lorem Ipsum is simply dummy text of the printing...
               </p>
-              <a href="#" class="btn-read-more">READ MORE ↗</a>
+              <a href="./blog-detail.html" class="btn-read-more">READ MORE ↗</a>
             </div>
           </article>
+
           <article class="blog-card white-card">
             <div class="card-image">
-              <img src="https://placehold.co/400x250" alt="Blog 2" />
+              <img
+                src="https://placehold.co/400x250/2E1A5E/FFF?text=Student"
+                alt="Blog 2"
+              />
             </div>
             <div class="card-content">
-              <div class="author">
-                <div class="author-icon-dark">👤</div>
-                <span>By Pritam Rathi</span>
+              <div class="author-meta">
+                <span class="icon">👤</span> <span>By Pritam Rathi</span>
               </div>
               <h4 class="card-title-sm">Typesetting industry dummy text.</h4>
-              <div class="meta-info">2ND MAY 2025 | 5 min read</div>
+              <div class="date-meta">2ND MAY 2025 | 5 min read</div>
               <p class="excerpt">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry...
+                Lorem Ipsum is simply dummy text of the printing...
               </p>
-              <a href="#" class="btn-read-more">READ MORE ↗</a>
+              <a href="./blog-detail.html" class="btn-read-more">READ MORE ↗</a>
             </div>
           </article>
+
           <article class="blog-card white-card">
             <div class="card-image">
-              <img src="https://placehold.co/400x250" alt="Blog 3" />
+              <img
+                src="https://placehold.co/400x250/003366/FFF?text=Group"
+                alt="Blog 3"
+              />
             </div>
             <div class="card-content">
-              <div class="author">
-                <div class="author-icon-dark">👤</div>
-                <span>By Pritam Rathi</span>
+              <div class="author-meta">
+                <span class="icon">👤</span> <span>By Pritam Rathi</span>
               </div>
               <h4 class="card-title-sm">
                 Standard dummy text ever since the 1500s.
               </h4>
-              <div class="meta-info">1ST MAY 2025 | 4 min read</div>
+              <div class="date-meta">1ST MAY 2025 | 4 min read</div>
               <p class="excerpt">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry...
+                Lorem Ipsum is simply dummy text of the printing...
               </p>
-              <a href="#" class="btn-read-more">READ MORE ↗</a>
+              <a href="./blog-detail.html" class="btn-read-more">READ MORE ↗</a>
             </div>
           </article>
         </div>
       </section>
 
       <section class="blog-section">
-        <div class="section-header">
-          <h3 class="section-heading-left">All Blogs</h3>
-        </div>
+        <h3 class="section-heading">All Blogs</h3>
+
         <div class="blogs-grid">
           <article class="blog-card white-card">
             <div class="card-image">
-              <img src="https://placehold.co/400x250" alt="Blog 4" />
+              <img
+                src="https://placehold.co/400x250/FFB347/333?text=Child+Learning"
+                alt="Blog 4"
+              />
             </div>
             <div class="card-content">
-              <div class="author">
-                <div class="author-icon-dark">👤</div>
-                <span>By Pritam Rathi</span>
+              <div class="author-meta">
+                <span class="icon">👤</span> <span>By Pritam Rathi</span>
               </div>
               <h4 class="card-title-sm">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
+                Lorem Ipsum is simply dummy text of the printing.
               </h4>
-              <div class="meta-info">2ND MAY 2025 | 6 min read</div>
+              <div class="date-meta">2ND MAY 2025 | 6 min read</div>
               <p class="excerpt">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the indu...
+                Lorem Ipsum is simply dummy text of the printing...
               </p>
-              <a href="#" class="btn-read-more">READ MORE ↗</a>
+              <a href="./blog-detail.html" class="btn-read-more">READ MORE ↗</a>
             </div>
           </article>
+
           <article class="blog-card white-card">
             <div class="card-image">
-              <img src="https://placehold.co/400x250" alt="Blog 5" />
+              <img
+                src="https://placehold.co/400x250/2E1A5E/FFF?text=Student"
+                alt="Blog 5"
+              />
             </div>
             <div class="card-content">
-              <div class="author">
-                <div class="author-icon-dark">👤</div>
-                <span>By Pritam Rathi</span>
+              <div class="author-meta">
+                <span class="icon">👤</span> <span>By Pritam Rathi</span>
               </div>
               <h4 class="card-title-sm">
-                Another interesting blog post title goes here.
+                Lorem Ipsum is simply dummy text of the printing.
               </h4>
-              <div class="meta-info">2ND MAY 2025 | 6 min read</div>
+              <div class="date-meta">2ND MAY 2025 | 5 min read</div>
               <p class="excerpt">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the indu...
+                Lorem Ipsum is simply dummy text of the printing...
               </p>
-              <a href="#" class="btn-read-more">READ MORE ↗</a>
+              <a href="./blog-detail.html" class="btn-read-more">READ MORE ↗</a>
+            </div>
+          </article>
+
+          <article class="blog-card white-card">
+            <div class="card-image">
+              <img
+                src="https://placehold.co/400x250/003366/FFF?text=Group"
+                alt="Blog 6"
+              />
+            </div>
+            <div class="card-content">
+              <div class="author-meta">
+                <span class="icon">👤</span> <span>By Pritam Rathi</span>
+              </div>
+              <h4 class="card-title-sm">
+                Lorem Ipsum is simply dummy text of the printing.
+              </h4>
+              <div class="date-meta">1ST MAY 2025 | 4 min read</div>
+              <p class="excerpt">
+                Lorem Ipsum is simply dummy text of the printing...
+              </p>
+              <a href="./blog-detail.html" class="btn-read-more">READ MORE ↗</a>
             </div>
           </article>
         </div>
@@ -426,4 +509,15 @@
       </div>
     </footer>
   </body>
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+  ></script>
+  <script type="text/javascript">
+    (function () {
+      // Initialize EmailJS with your Public Key (Get this from emailjs.com)
+      emailjs.init("YOUR_PUBLIC_KEY_HERE");
+    })();
+  </script>
+  <script src="../scripts/main.js" defer></script>
 </html>

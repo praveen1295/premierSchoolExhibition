@@ -182,3 +182,12 @@ if (modalForm) {
     }, 1500);
   });
 }
+
+//navbar
+const hamburger = document.getElementById("hamburgerBtn");
+const navbar = document.getElementById("navbar");
+
+hamburger.addEventListener("click", () => {
+  navbar.classList.toggle("nav-open");
+  hamburger.classList.toggle("toggle");
+});

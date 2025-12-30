@@ -79,36 +79,190 @@ body {
 /* HEADER */
 
 /* --- HEADER SECTION --- */
+/* --- HEADER LAYOUT --- */
+/* --- HEADER MAIN --- */
 .header {
-  padding: 0.8rem 0; /* Slightly tighter padding to match the sleek look */
-
-  /* The Deep Purple Gradient Background */
-  background: linear-gradient(90deg, #180c3c 0%, #2e1a5e 100%);
-
+  padding: 0.8rem 0;
+  background: linear-gradient(90deg, #120836 0%, #301b63 50%, #120836 100%);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   position: sticky;
   top: 0;
-  z-index: 1000; /* Ensures it stays on top of content */
+  z-index: 1000;
 }
 
 .header__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* Ensure container width is constrained and centered */
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
 }
 
-/* Logo Styling */
+/* --- LOGO --- */
 .header__logo img {
-  height: 50px; /* Adjust height to fit the bar */
+  height: 50px;
   width: auto;
   display: block;
-  border-radius: 4px; /* Slight rounded corners on logo if desired */
+  border-radius: 4px;
 }
 
+/* --- NAVIGATION (Desktop) --- */
+.header__nav {
+  /* ALIGNMENT FIX: Pushes nav to the left, Next to logo */
+  margin-left: 3rem;
+  /* ALIGNMENT FIX: Pushes the button (next sibling) to the far right */
+  margin-right: auto;
+}
+
+.nav__list {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav__link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav__link:hover,
+.nav__link.active {
+  color: #ffffff;
+}
+
+.nav__link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.nav__link:hover::after,
+.nav__link.active::after {
+  width: 100%;
+}
+
+/* --- BUTTONS & ACTIONS --- */
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn--white {
+  background-color: #ffffff;
+  color: #003366;
+  font-weight: 700;
+  padding: 10px 25px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+  white-space: nowrap;
+}
+
+.btn--white:hover {
+  transform: translateY(-2px);
+  background-color: #f0f8ff;
+}
+
+/* Visibility Helpers */
+.mobile-only-btn {
+  display: none;
+}
+.desktop-only-btn {
+  display: block;
+}
+
+/* --- HAMBURGER ICON (Hidden on Desktop) --- */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* --- RESPONSIVE STYLES (Mobile) --- */
+@media (max-width: 900px) {
+  /* 1. Show Hamburger, Hide Desktop Button */
+  .hamburger {
+    display: flex;
+  }
+  .desktop-only-btn {
+    display: none;
+  }
+  .mobile-only-btn {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  /* 2. Slide-out Navigation Drawer */
+  .header__nav {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Hidden by default */
+    width: 250px;
+    height: 100vh;
+    background: #301b63; /* Match header theme */
+    padding: 80px 20px 20px;
+    margin: 0; /* Reset margins */
+    transition: right 0.3s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+  }
+
+  /* 3. Class added by JS to open menu */
+  .header__nav.nav-open {
+    right: 0;
+  }
+
+  /* 4. Vertical List Layout */
+  .nav__list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .nav__link {
+    font-size: 1.1rem;
+    display: block;
+    width: 100%;
+  }
+
+  /* 5. Hamburger Animation to 'X' */
+  .hamburger.toggle span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+  }
+  .hamburger.toggle span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.toggle span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+  }
+}
 /* --- THE WHITE "REGISTER NOW" BUTTON --- */
 .btn--white {
   background-color: #ffffff;
