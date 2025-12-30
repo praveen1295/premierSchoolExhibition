@@ -1,0 +1,925 @@
+/* VARIABLES & RESET */
+:root {
+  --deep-purple: #2e1a5e;
+  --light-purple: #f3e5f5;
+  --accent-blue: #0056b3;
+  --card-purple: #e2dcfc; /* Light purple for highlight cards */
+  --text-dark: #333;
+  --white: #ffffff;
+  --container-width: 1200px;
+  --transition: 0.4s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn--primary {
+  background: var(--deep-purple);
+  color: var(--white);
+}
+.btn--outline {
+  border: 2px solid var(--deep-purple);
+  color: var(--deep-purple);
+  margin-top: 1rem;
+}
+.btn--submit {
+  background: var(--deep-purple);
+  color: white;
+  width: 100%;
+  border: none;
+  padding: 12px;
+  margin-top: 1rem;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+  color: #000;
+}
+.skip-link {
+  position: absolute;
+  top: -40px;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* HEADER */
+
+.header {
+  padding: 1rem 0;
+  background: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- SECTION TITLE STYLING --- */
+.section-title {
+  color: var(--deep-purple); /* Matches the dark purple brand color */
+  font-size: 2.2rem; /* Large and readable */
+  font-weight: 700; /* Bold weight */
+  text-align: center; /* Centered alignment */
+  margin-bottom: 2.5rem; /* Space below the title */
+  position: relative; /* Ready for decorative elements if needed */
+  line-height: 1.3;
+}
+
+/* Variant: White Title (for dark backgrounds like Highlights section) */
+.section-title.text-white {
+  color: #ffffff;
+}
+
+/* Variant: Left Aligned (for Attractions section) */
+.section-title.text-left {
+  text-align: left;
+}
+
+/* HERO SECTION (Dual Axis Logic) */
+.hero {
+  background: linear-gradient(to right, #f8f0ff 40%, #ffffff 40%);
+  padding: 4rem 0;
+  overflow: hidden;
+  position: relative;
+}
+.hero__wrapper {
+  display: flex;
+  position: relative;
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+.hero__slide {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  transition: opacity 0.5s;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.hero__slide.active {
+  opacity: 1;
+  position: relative;
+}
+
+/* Dual Axis Animations */
+.hero__slide.active .hero__text-content {
+  animation: slideUp 0.8s ease forwards;
+}
+.hero__slide.active .hero__image-content {
+  animation: slideLeft 0.8s ease forwards;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideLeft {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.hero__text-content {
+  flex: 1;
+  padding-right: 2rem;
+}
+.hero__subtitle {
+  color: #9c27b0;
+  font-weight: 600;
+  font-style: italic;
+}
+.hero__title {
+  font-size: 3rem;
+  color: var(--deep-purple);
+  line-height: 1.2;
+  margin: 1rem 0;
+}
+.hero__image-content {
+  flex: 1;
+  text-align: right;
+}
+.hero__img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+/* STATS */
+.stats {
+  padding: 3rem 0;
+}
+.stats__grid {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+.stats__icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: goldenrod;
+}
+
+/* PARTNERS MARQUEE */
+.partners {
+  padding: 2rem 0;
+  overflow: hidden;
+  background: #fff;
+}
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.marquee__track {
+  display: flex;
+  gap: 4rem;
+  width: max-content;
+}
+
+/* Animations */
+.marquee--left .marquee__track {
+  animation: scrollLeft 20s linear infinite;
+}
+.marquee--right .marquee__track {
+  animation: scrollRight 20s linear infinite;
+}
+
+/* Pause on hover */
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.marquee__item {
+  font-weight: bold;
+  color: #555;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+/* EVENT INFO (Blue Section) */
+.event-info {
+  background: var(--deep-purple);
+  color: white;
+  padding: 4rem 0;
+  overflow: hidden;
+}
+.event-info__grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+.highlight {
+  color: #fdbb2d;
+}
+.event-card {
+  background: #ffe0b2;
+  color: #333;
+  display: inline-flex;
+  border-radius: 50px;
+  padding: 10px 20px;
+  margin-top: 2rem;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* 1. The Viewing Window */
+.event-window {
+  width: 100%;
+  max-width: 500px;
+  height: 400px; /* Matches height of ONE item */
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  background: var(--deep-purple);
+
+  /* Optional: Add a mask to fade top/bottom for smoother look */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+/* 2. The Track */
+.slider-track {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  /* linear = constant speed (no pauses) 
+     infinite = loops forever
+     10s = Adjust this number to control speed
+  */
+  animation: smoothScroll 10s linear infinite;
+}
+
+/* 3. The Items */
+.event-info__collage {
+  flex: 0 0 400px; /* Fixed height per item */
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+  padding-bottom: 4px;
+}
+
+/* Internal Pill Styling */
+.collage-pill {
+  border-radius: 50px;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+.pill-1 {
+  width: 80px;
+  height: 70%;
+  margin-top: 40px;
+}
+.pill-2 {
+  width: 100px;
+  height: 100%;
+}
+.pill-3 {
+  width: 80px;
+  height: 60%;
+  margin-top: -40px;
+}
+
+.collage-pill img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 4. The Animation Logic */
+@keyframes smoothScroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    /* We move -50% because the track contains 2 full sets.
+       Once we scroll past the first set (50% of track), 
+       we are visually identical to the start position.
+    */
+    transform: translateY(-50%);
+  }
+}
+
+/* Hover to Pause (Optional UX enhancement) */
+.event-window:hover .slider-track {
+  animation-play-state: paused;
+}
+.event-info__form-wrapper {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+.enquiry-form input,
+.enquiry-form select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+.enquiry-form input::placeholder {
+  color: #ddd;
+}
+
+.form-group {
+  /* background-color: rgba(255, 255, 255, 0.2); */
+  color: blue;
+}
+/* Spinner Animation */
+.loader {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 2px solid #ffffff;
+  width: 16px;
+  height: 16px;
+  -webkit-animation: spin 1s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+/* Button Loading State */
+.btn--submit:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- SECTION 7: VIDEO BANNER --- */
+.video-banner {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+.video-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: 1;
+}
+.video-banner__overlay {
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.play-button-large {
+  width: 80px;
+  height: 80px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.play-button-large:hover {
+  transform: scale(1.1);
+}
+.play-icon {
+  color: var(--deep-purple);
+  font-size: 2rem;
+  margin-left: 5px;
+}
+/* --- SECTION 7: VIDEO BANNER --- */
+.video-banner {
+  position: relative;
+  height: 400px; /* Adjust height as needed */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4rem;
+  background: #000; /* Black background while loading */
+}
+
+/* Updated to target the video tag specifically */
+video.video-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures video fills the box without stretching */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* OPTIONAL: If you still want a dark tint over the video 
+   (but want controls to work), use this class. 
+   You would need to add <div class="video-tint"></div> in HTML.
+*/
+.video-tint {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2); /* Light dark overlay */
+  pointer-events: none; /* Allows clicks to pass through to the video controls */
+  z-index: 2;
+}
+
+/* --- SECTION 8: ATTRACTIONS (Diamond Grid) --- */
+.attractions {
+  padding: 4rem 0;
+  background: linear-gradient(to right, #fff, #f9f9f9);
+}
+.attractions__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* Diamond Logic */
+.diamond-cluster {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+}
+.diamond {
+  width: 140px;
+  height: 140px;
+  overflow: hidden;
+  border-radius: 15px; /* Soft rounded corners like screenshot */
+  position: absolute;
+  border: 3px solid white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: rotate(45deg); /* Creates the diamond shape */
+}
+.diamond img {
+  width: 140%; /* Compensate for rotation */
+  height: 140%;
+  transform: rotate(-45deg) translate(-15%, -15%); /* Un-rotate image */
+  object-fit: cover;
+}
+
+/* Positioning the diamonds */
+.d-top {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+.d-bottom {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+.d-left {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%) rotate(45deg);
+}
+.d-right {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* Center Logo (Star) */
+.d-center-logo {
+  width: 120px;
+  height: 120px;
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* No rotation for center container initially */
+  z-index: 2;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.star-logo {
+  /* Simple CSS Star approximation or use an SVG image in production */
+  color: var(--deep-purple);
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+/* Attractions Text Side */
+.attractions__content .text-left {
+  text-align: left;
+}
+.tab-buttons {
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+.tab-btn {
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid var(--deep-purple);
+  color: var(--deep-purple);
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+}
+.tab-btn.active {
+  background: var(--deep-purple);
+  color: white;
+}
+.tab-content h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+.tab-content p {
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+.btn--arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+}
+
+/* SCHOOL TYPES (Grid to Slider) */
+.school-types {
+  padding: 4rem 0;
+}
+.school-types__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.school-card {
+  height: 350px;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+}
+.school-card__overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  color: white;
+  padding: 1.5rem;
+  width: 100%;
+}
+
+/* HIGHLIGHTS (Horizontal Slider) */
+.highlights {
+  background: var(--deep-purple);
+  padding: 4rem 0;
+  color: white;
+  position: relative;
+}
+.highlights__slider-container {
+  margin-top: 3rem;
+  position: relative;
+}
+.highlights__track {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 1rem;
+  scrollbar-width: none;
+}
+.highlights__track::-webkit-scrollbar {
+  display: none;
+}
+
+.highlight-card {
+  min-width: 280px;
+  background: var(--card-purple);
+  color: var(--deep-purple);
+  padding: 2rem;
+  border-radius: 10px;
+  flex: 0 0 auto;
+}
+.highlight-card__icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.slider-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.nav-btn {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.nav-btn:hover {
+  background: white;
+  color: var(--deep-purple);
+}
+
+/* --- SECTION 9: REVIEWS --- */
+.reviews {
+  padding: 4rem 0;
+  background: #fff;
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.review-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.review-card img {
+  width: 100%;
+  display: block;
+  transition: 0.3s;
+}
+.review-card:hover img {
+  transform: scale(1.05);
+}
+.play-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* --- SECTION 10: GALLERY --- */
+.gallery {
+  padding: 4rem 0 0;
+  overflow: hidden;
+}
+.gallery-container {
+  margin-top: 2rem;
+  width: 100%;
+  /* Create the curved visual effect using clip-path or border-radius on container */
+  padding: 20px 0;
+  position: relative;
+}
+/* Optional: Curved perspective effect */
+.gallery-track {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+}
+.gallery-track::-webkit-scrollbar {
+  display: none; /* Hide scrollbar Chrome */
+}
+.gallery-track img {
+  height: 300px;
+  flex: 0 0 auto;
+  border-radius: 0;
+  object-fit: cover;
+}
+
+/* FOOTER */
+.footer {
+  background: #1a0f35;
+  color: #fff;
+  padding: 3rem 0 1rem;
+}
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.footer__bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+  font-size: 0.9rem;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 900px) {
+  .attractions__grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .attractions__content .text-left {
+    text-align: center;
+  }
+  .diamond-cluster {
+    transform: scale(0.8);
+    margin-bottom: 2rem;
+  }
+  .tab-buttons {
+    justify-content: center;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+  .tab-buttons {
+    flex-direction: column;
+  }
+  .video-banner {
+    height: 250px;
+  }
+
+  /* Adjust diamond size for small screens */
+  .diamond-cluster {
+    width: 300px;
+    height: 300px;
+  }
+  .diamond {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  /* Optional: Responsive adjustment for mobile */
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    padding: 0 10px; /* Prevents text hitting screen edges */
+  }
+
+  .hero__wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero__text-content {
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+  .hero {
+    background: linear-gradient(to bottom, #f8f0ff, #fff);
+  }
+
+  .stats__grid {
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .stats__item {
+    width: 45%;
+  }
+
+  .event-info__grid {
+    grid-template-columns: 1fr;
+  }
+  .event-info__collage {
+    display: none;
+  } /* Hide complex collage on mobile */
+
+  /* Grid to Mobile Slider Logic */
+  .school-types__grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 1rem;
+  }
+  .school-card {
+    min-width: 85vw;
+    scroll-snap-align: center;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
