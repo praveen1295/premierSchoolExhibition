@@ -1477,22 +1477,160 @@ video.video-bg {
 }
 
 /* FOOTER */
+/* --- FOOTER MAIN SECTION --- */
 .footer {
-  background: #1a0f35;
+  /* Deep Purple Gradient Background */
+  background: linear-gradient(90deg, #120836 0%, #301b63 50%, #120836 100%);
   color: #fff;
-  padding: 3rem 0 1rem;
+  padding-top: 3rem;
+  /* Bottom padding removed because the white bar handles it */
+  padding-bottom: 0;
+  font-family: "Poppins", sans-serif;
 }
-.footer__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+
+/* Flex Container for Desktop Layout */
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
   gap: 2rem;
-  margin-bottom: 2rem;
+  padding-bottom: 3rem; /* Space before the white bar */
 }
-.footer__bottom {
-  text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 1rem;
+
+/* --- COLUMNS --- */
+.footer__item {
+  flex: 1;
+  min-width: 200px; /* Ensures columns don't get too thin */
+}
+
+/* Logo Column specific width */
+.logo-col {
+  flex: 0 0 auto;
+  margin-right: 1rem;
+}
+
+.footer-logo {
+  max-width: 140px;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Info Columns (Icon + Text) */
+.info-col {
+  display: flex;
+  gap: 15px;
+}
+
+/* Icon Box Style (Light Purple Square) */
+.icon-box {
+  width: 45px;
+  height: 45px;
+  background-color: #e0d4fc; /* Light Lavender */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-box svg {
+  width: 24px;
+  height: 24px;
+  stroke: #2e1a5e; /* Dark Purple Icon Stroke */
+}
+
+/* Typography */
+.footer-text h4,
+.social-col h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.footer-text p {
   font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+/* --- SOCIAL ICONS --- */
+.social-col {
+  flex: 0 0 auto; /* Don't stretch this column */
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #e0d4fc; /* Light Lavender */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background-color 0.2s;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+  background-color: #fff;
+}
+
+.social-icon svg {
+  stroke: #2e1a5e;
+}
+
+/* --- FOOTER BOTTOM BAR (White Strip) --- */
+.footer__bottom {
+  background-color: #ffffff;
+  color: #2e1a5e; /* Dark Text */
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  width: 100%;
+}
+
+.footer__bottom p {
+  margin: 0;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+
+/* Tablet: 2 Columns Grid */
+@media (max-width: 992px) {
+  .footer__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 items per row */
+  }
+
+  .logo-col {
+    grid-column: span 2; /* Logo takes full width on tablet */
+    margin-bottom: 1rem;
+  }
+}
+
+/* Mobile: Stack Vertically */
+@media (max-width: 600px) {
+  .footer__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .info-col {
+    align-items: flex-start;
+  }
+
+  .logo-col {
+    margin-bottom: 0;
+  }
 }
 
 /* --- RESPONSIVE ADJUSTMENTS --- */
