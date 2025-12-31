@@ -45,9 +45,10 @@ a {
   padding: 0.8rem 0;
   background: linear-gradient(90deg, #120836 0%, #301b63 50%, #120836 100%);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 1000;
+  width: 100vw;
+  z-index: 100;
 }
 
 .header__container {
@@ -342,12 +343,159 @@ a {
   padding: 0 20px;
 }
 
+/**********************************************************************/
+
+/* Container for the whole section */
+
+/* LEFT SIDE: LOGO IMAGE */
+.banner-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  width: 100%;
+  position: relative;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+/* LEFT SIDE: LOGO IMAGE */
+.logo-img {
+  position: absolute;
+  bottom: -20px;
+  left: 5rem;
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* WRAPPER FOR THE NAV */
+.banner-list {
+  padding-left: 20%; /* Kept as per your previous code, though this is quite large */
+}
+
+/* --- NEW STYLES: TO SHOW LIST ITEM PROPERLY --- */
+.banner__list {
+  display: flex; /* Makes items horizontal */
+  list-style: none; /* Removes bullet points */
+  margin: 0;
+  padding: 0;
+  gap: 30px; /* Space between Home and Blog */
+}
+
+.banner__link {
+  text-decoration: none; /* Removes underline */
+  color: #1e1b4b; /* Matches your button color */
+  font-size: 16px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  font-family: sans-serif; /* Fallback font */
+}
+
+.nav__link:hover,
+.nav__link.active {
+  color: #555; /* Optional: lighter color on hover/active */
+}
+
+/* RIGHT SIDE: BUTTON DESIGN */
+.register-btn {
+  display: inline-flex;
+  text-decoration: none;
+  height: 45px;
+  transition: opacity 0.3s ease;
+}
+
+.register-btn:hover {
+  opacity: 0.9;
+}
+
+.btn-icon {
+  background-color: #1e1b4b;
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: 2px solid #1e1b4b;
+}
+
+.btn-text {
+  background-color: #fff;
+  color: #1e1b4b;
+  border: 2px solid #1e1b4b;
+  border-left: none;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap; /* Prevents text wrapping */
+}
+
+/* --- UPDATED RESPONSIVE: HIDE NAV ON MOBILE --- */
+@media (max-width: 768px) {
+  /* Hide the middle navigation section completely */
+  .banner-list {
+    display: none;
+  }
+
+  /* Adjust container to handle logo and button positioning */
+  .banner-container {
+    justify-content: space-between;
+    /* Or use 'flex-end' if you want the button to move right 
+       since the logo is absolute positioned */
+  }
+
+  /* Optional: On very small screens, you might want to adjust the logo/button sizes */
+  .logo-img {
+    height: 60px; /* Reduce logo size on mobile so it fits */
+    bottom: 5px; /* Adjust position */
+  }
+}
+
+:root {
+  --deep-purple: #1e0b4b; /* Adjusted to match screenshot */
+  --lighter-purple: #2a1260;
+  --gold: #ffdfba;
+  --white: #ffffff;
+  --border-radius: 12px;
+}
+
 .hero-section {
   background-color: var(--deep-purple);
   color: var(--white);
-  padding: 3rem 0;
+  padding: 4rem 2rem;
   overflow: hidden;
   position: relative;
+  /* Simulating the ripple background effect */
+  background: radial-gradient(
+    circle at 0% 50%,
+    #240d57 0%,
+    var(--deep-purple) 60%
+  );
+}
+
+/* Creating the concentric circles pattern */
+.hero-bg-ripples {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+  background: repeating-radial-gradient(
+    circle at 0 50%,
+    transparent 0,
+    transparent 40px,
+    #ffffff 41px,
+    transparent 42px
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 
 .hero-grid {
@@ -355,41 +503,97 @@ a {
   grid-template-columns: 1fr;
   gap: 2rem;
   align-items: center;
+  position: relative;
+  z-index: 1; /* Ensures content sits above background patterns */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Decorative Dots (Left side) */
+.decor-dots {
+  position: absolute;
+  left: 5%;
+  top: 40%;
+  width: 40px;
+  height: 60px;
+  background-image: radial-gradient(var(--gold) 2px, transparent 2px);
+  background-size: 12px 12px;
+  opacity: 0.8;
+}
+
+/* Decorative Zigzag (Top Right) */
+.decor-zigzag {
+  position: absolute;
+  top: 2rem;
+  right: 5%;
+  transform: scale(1.5);
+}
+
+.hero-text {
+  padding-left: 2rem; /* Space for the dots */
 }
 
 .hero-title {
-  font-size: 2rem;
+  font-family: sans-serif; /* Replace with your specific font */
+  font-size: 2.5rem;
+  font-weight: 600;
   color: var(--gold);
-  line-height: 1.2;
-  margin-bottom: 1rem;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
 }
 
 .hero-meta {
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-  opacity: 0.9;
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
 }
+
 .hero-meta .sep {
-  margin: 0 10px;
+  margin: 0 12px;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .hero-author {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-weight: 500;
+  gap: 10px;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-author i {
+  font-size: 1.2rem;
 }
 
 .hero-image-wrapper {
   position: relative;
   border-radius: var(--border-radius);
   overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
+
 .hero-img {
   width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
   border-radius: var(--border-radius);
 }
 
+/* Desktop View: Split into 2 columns */
+@media (min-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 5fr 6fr; /* Text takes 5 parts, Image takes 6 */
+    gap: 4rem;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+}
 .dots-decor {
   position: absolute;
   top: -10px;
