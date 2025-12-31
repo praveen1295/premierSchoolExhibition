@@ -654,7 +654,6 @@ body {
   bottom: 0;
   width: 25%;
 
-  /* The Gradient: Starts with the Section BG color -> Fades to Transparent */
   background: linear-gradient(
     to right,
     #f8f0ff 0%,
@@ -720,7 +719,6 @@ body {
     justify-content: center;
   }
 
-  /* Remove the side fade on mobile, maybe fade bottom instead? */
   .hero__image-content::before {
     width: 100%;
     height: 20%;
