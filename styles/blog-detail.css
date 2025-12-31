@@ -1,6 +1,6 @@
 :root {
   --deep-purple: #2e1a5e;
-  --light-purple: #e1bee7; /* Sidebar Background */
+  --light-purple: #e1bee7;
   --text-main: #333;
   --text-gray: #555;
   --white: #ffffff;
@@ -27,7 +27,6 @@ a {
   text-decoration: none;
   color: inherit;
 }
-/* --- HEADER --- */
 
 .btn {
   display: inline-block;
@@ -41,8 +40,7 @@ a {
   background: var(--deep-purple);
   color: var(--white);
 }
-/* --- HEADER SECTION --- */
-/* --- HEADER MAIN --- */
+
 .header {
   padding: 0.8rem 0;
   background: linear-gradient(90deg, #120836 0%, #301b63 50%, #120836 100%);
@@ -61,7 +59,6 @@ a {
   padding: 0 15px;
 }
 
-/* --- LOGO --- */
 .header__logo img {
   height: 50px;
   width: auto;
@@ -69,11 +66,8 @@ a {
   border-radius: 4px;
 }
 
-/* --- NAVIGATION (Desktop) --- */
 .header__nav {
-  /* ALIGNMENT FIX: Pushes nav to the left, Next to logo */
   margin-left: 3rem;
-  /* ALIGNMENT FIX: Pushes the button (next sibling) to the far right */
   margin-right: auto;
 }
 
@@ -117,7 +111,6 @@ a {
   width: 100%;
 }
 
-/* --- BUTTONS & ACTIONS --- */
 .header__actions {
   display: flex;
   align-items: center;
@@ -141,7 +134,6 @@ a {
   background-color: #f0f8ff;
 }
 
-/* Visibility Helpers */
 .mobile-only-btn {
   display: none;
 }
@@ -149,7 +141,6 @@ a {
   display: block;
 }
 
-/* --- HAMBURGER ICON (Hidden on Desktop) --- */
 .hamburger {
   display: none;
   background: none;
@@ -167,9 +158,7 @@ a {
   transition: all 0.3s ease;
 }
 
-/* --- RESPONSIVE STYLES (Mobile) --- */
 @media (max-width: 900px) {
-  /* 1. Show Hamburger, Hide Desktop Button */
   .hamburger {
     display: flex;
   }
@@ -181,27 +170,24 @@ a {
     margin-top: 1rem;
   }
 
-  /* 2. Slide-out Navigation Drawer */
   .header__nav {
     position: fixed;
     top: 0;
-    right: -100%; /* Hidden by default */
+    right: -100%;
     width: 250px;
     height: 100vh;
-    background: #301b63; /* Match header theme */
+    background: #301b63;
     padding: 80px 20px 20px;
-    margin: 0; /* Reset margins */
+    margin: 0;
     transition: right 0.3s ease-in-out;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
     z-index: 999;
   }
 
-  /* 3. Class added by JS to open menu */
   .header__nav.nav-open {
     right: 0;
   }
 
-  /* 4. Vertical List Layout */
   .nav__list {
     flex-direction: column;
     align-items: flex-start;
@@ -214,7 +200,6 @@ a {
     width: 100%;
   }
 
-  /* 5. Hamburger Animation to 'X' */
   .hamburger.toggle span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 6px);
   }
@@ -226,37 +211,28 @@ a {
   }
 }
 
-/* --- MODAL STYLES --- */
-
-/* The Background Overlay (Hidden by default) */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Dark see-through background */
+  background: rgba(0, 0, 0, 0.6);
   z-index: 9999;
-
-  /* Flexbox to center the modal */
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* Transition for fading */
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease-in-out;
-  backdrop-filter: blur(4px); /* Nice blur effect on background */
+  backdrop-filter: blur(4px);
 }
 
-/* State: Open */
 .modal-overlay.is-open {
   opacity: 1;
   visibility: visible;
 }
 
-/* The Modal Box */
 .modal-container {
   background: #ffffff;
   width: 90%;
@@ -268,12 +244,10 @@ a {
   overflow: hidden;
 }
 
-/* Animation: Slide up slightly when opening */
 .modal-overlay.is-open .modal-container {
   transform: translateY(0);
 }
 
-/* Header Section */
 .modal-header {
   display: flex;
   justify-content: space-between;
@@ -289,7 +263,6 @@ a {
   font-size: 1.25rem;
 }
 
-/* Close Button (X) */
 .modal-close {
   background: none;
   border: none;
@@ -304,7 +277,6 @@ a {
   color: #ff0000;
 }
 
-/* Body & Form */
 .modal-body {
   padding: 1.5rem;
 }
@@ -342,28 +314,26 @@ a {
   font-size: 0.9rem;
 }
 
-/* --- THE WHITE "REGISTER NOW" BUTTON --- */
 .btn--white {
   background-color: #ffffff;
-  color: #003366; /* Dark Blue text to match the logo theme */
-  font-weight: 700; /* Bold text */
+  color: #003366;
+  font-weight: 700;
   font-size: 1rem;
-  padding: 10px 28px; /* Horizontal padding for pill shape */
-  border-radius: 50px; /* Pill shape */
+  padding: 10px 28px;
+  border-radius: 50px;
   border: none;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 8px; /* Space between text and arrow */
+  gap: 8px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Hover Effect */
 .btn--white:hover {
-  transform: translateY(-2px); /* Lifts up slightly */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increased shadow */
-  background-color: #f0f8ff; /* Very light blue tint on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  background-color: #f0f8ff;
 }
 
 .container {
@@ -372,7 +342,6 @@ a {
   padding: 0 20px;
 }
 
-/* --- HERO SECTION --- */
 .hero-section {
   background-color: var(--deep-purple);
   color: var(--white);
@@ -421,7 +390,6 @@ a {
   border-radius: var(--border-radius);
 }
 
-/* Decorative Dots */
 .dots-decor {
   position: absolute;
   top: -10px;
@@ -433,18 +401,16 @@ a {
   z-index: 1;
 }
 
-/* --- CONTENT LAYOUT (Sidebar + Article) --- */
 .content-layout {
   display: flex;
-  flex-direction: column; /* Mobile Default: Stacked */
+  flex-direction: column;
   gap: 40px;
   margin-top: 40px;
   margin-bottom: 60px;
 }
 
-/* SIDEBAR */
 .sidebar {
-  order: 2; /* Mobile: Sidebar at bottom */
+  order: 2;
   width: 100%;
 }
 
@@ -487,9 +453,8 @@ a {
   transform: translateY(-3px);
 }
 
-/* ARTICLE BODY */
 .article-body {
-  order: 1; /* Mobile: Article on top */
+  order: 1;
   width: 100%;
 }
 
@@ -520,7 +485,6 @@ a {
   line-height: 1.6;
 }
 
-/* QUOTE BLOCK */
 .styled-quote {
   background: var(--light-purple-bg);
   padding: 40px;
@@ -553,7 +517,6 @@ a {
   position: relative;
 }
 
-/* NAVIGATION */
 .article-nav {
   display: flex;
   justify-content: space-between;
@@ -573,7 +536,6 @@ a {
   color: #555;
 }
 
-/* --- RELATED BLOGS --- */
 .related-blogs {
   background: #f9f9f9;
   padding: 3rem 0;
@@ -629,9 +591,7 @@ a {
   margin-top: 10px;
 }
 
-/* --- DESKTOP RESPONSIVE (min-width: 992px) --- */
 @media (min-width: 992px) {
-  /* Hero Split Layout */
   .hero-grid {
     grid-template-columns: 1fr 1fr;
     padding: 2rem 0;
@@ -640,14 +600,13 @@ a {
     font-size: 2.8rem;
   }
 
-  /* Layout: Sidebar Left, Content Right */
   .content-layout {
-    flex-direction: row; /* Side-by-Side */
+    flex-direction: row;
     align-items: flex-start;
   }
 
   .sidebar {
-    order: 1; /* Desktop: Sidebar first (Left) */
+    order: 1;
     width: 300px;
     flex-shrink: 0;
   }
@@ -657,11 +616,10 @@ a {
   }
 
   .article-body {
-    order: 2; /* Desktop: Content second (Right) */
+    order: 2;
     flex-grow: 1;
   }
 
-  /* Related Blogs Grid */
   .related-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -678,28 +636,23 @@ a {
   padding: 40px 20px;
 }
 
-/* --- MAIN GRID LAYOUT --- */
 .layout-grid {
   display: grid;
   gap: 40px;
-  /* Mobile First: Single Column */
   grid-template-columns: 1fr;
 }
 
-/* --- SIDEBAR STYLING --- */
 .sidebar-wrapper {
-  /* Mobile: Order 2 puts sidebar at bottom */
   order: 2;
   display: flex;
   flex-direction: column;
-  gap: 24px; /* Space between the 'Contents' card and 'Follow' card */
+  gap: 24px;
 }
 
 .sidebar-card {
   background: var(--light-purple);
   padding: 30px;
   border-radius: var(--radius);
-  /* Subtle shadow for depth */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
@@ -747,15 +700,13 @@ a {
   transform: translateY(-3px);
 }
 
-/* --- ARTICLE CONTENT STYLING --- */
 .article-content {
-  order: 1; /* Mobile: Content on top */
+  order: 1;
 }
 
-/* Split Layout (Image + Text) */
 .split-layout {
   display: flex;
-  flex-direction: column-reverse; /* Mobile: Text Top, Image Bottom */
+  flex-direction: column-reverse;
   gap: 20px;
   margin-bottom: 20px;
 }
@@ -799,33 +750,30 @@ p {
 .nav-link:hover {
   color: #555;
 }
-/* --- DESKTOP RESPONSIVE (min-width: 992px) --- */
+
 @media (min-width: 992px) {
-  /* 1. Sidebar Left, Content Right */
   .layout-grid {
-    grid-template-columns: 280px 1fr; /* 280px Sidebar, rest Content */
+    grid-template-columns: 280px 1fr;
     align-items: start;
   }
 
   .sidebar-wrapper {
-    order: 1; /* Desktop: Sidebar first */
-    position: sticky; /* Keeps sidebar visible while scrolling */
+    order: 1;
+    position: sticky;
     top: 20px;
   }
 
   .article-content {
-    order: 2; /* Desktop: Content second */
+    order: 2;
   }
 
-  /* 2. Split Layout: Image Left, Text Right */
   .split-layout {
     display: grid;
-    grid-template-columns: 40% 1fr; /* Image takes 40% width */
+    grid-template-columns: 40% 1fr;
     gap: 30px;
-    align-items: start; /* Align text top with image top */
+    align-items: start;
   }
 
-  /* Reset direction for grid usage */
   .split-image-container {
     order: 1;
   }
@@ -834,43 +782,38 @@ p {
   }
 
   .split-image-container img {
-    height: 100%; /* Make image match height if text is long, or auto */
+    height: 100%;
     min-height: 300px;
   }
 
   .content-heading {
     font-size: 1.8rem;
-    margin-top: 0; /* Remove top margin for alignment */
+    margin-top: 0;
   }
 }
-/* --- FOOTER MAIN SECTION --- */
+
 .footer {
-  /* Deep Purple Gradient Background */
   background: linear-gradient(90deg, #120836 0%, #301b63 50%, #120836 100%);
   color: #fff;
   padding-top: 3rem;
-  /* Bottom padding removed because the white bar handles it */
   padding-bottom: 0;
   font-family: "Poppins", sans-serif;
 }
 
-/* Flex Container for Desktop Layout */
 .footer__container {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  flex-wrap: wrap;
   gap: 2rem;
-  padding-bottom: 3rem; /* Space before the white bar */
+  padding-bottom: 3rem;
 }
 
-/* --- COLUMNS --- */
 .footer__item {
   flex: 1;
-  min-width: 200px; /* Ensures columns don't get too thin */
+  min-width: 200px;
 }
 
-/* Logo Column specific width */
 .logo-col {
   flex: 0 0 auto;
   margin-right: 1rem;
@@ -882,17 +825,15 @@ p {
   border-radius: 4px;
 }
 
-/* Info Columns (Icon + Text) */
 .info-col {
   display: flex;
   gap: 15px;
 }
 
-/* Icon Box Style (Light Purple Square) */
 .icon-box {
   width: 45px;
   height: 45px;
-  background-color: #e0d4fc; /* Light Lavender */
+  background-color: #e0d4fc;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -903,10 +844,9 @@ p {
 .icon-box svg {
   width: 24px;
   height: 24px;
-  stroke: #2e1a5e; /* Dark Purple Icon Stroke */
+  stroke: #2e1a5e;
 }
 
-/* Typography */
 .footer-text h4,
 .social-col h4 {
   font-size: 1rem;
@@ -922,9 +862,8 @@ p {
   margin: 0;
 }
 
-/* --- SOCIAL ICONS --- */
 .social-col {
-  flex: 0 0 auto; /* Don't stretch this column */
+  flex: 0 0 auto;
 }
 
 .social-icons {
@@ -935,7 +874,7 @@ p {
 .social-icon {
   width: 40px;
   height: 40px;
-  background-color: #e0d4fc; /* Light Lavender */
+  background-color: #e0d4fc;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -952,10 +891,9 @@ p {
   stroke: #2e1a5e;
 }
 
-/* --- FOOTER BOTTOM BAR (White Strip) --- */
 .footer__bottom {
   background-color: #ffffff;
-  color: #2e1a5e; /* Dark Text */
+  color: #2e1a5e;
   text-align: center;
   padding: 1rem 0;
   font-size: 0.85rem;
@@ -967,22 +905,18 @@ p {
   margin: 0;
 }
 
-/* --- RESPONSIVE DESIGN --- */
-
-/* Tablet: 2 Columns Grid */
 @media (max-width: 992px) {
   .footer__container {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 items per row */
+    grid-template-columns: 1fr 1fr;
   }
 
   .logo-col {
-    grid-column: span 2; /* Logo takes full width on tablet */
+    grid-column: span 2;
     margin-bottom: 1rem;
   }
 }
 
-/* Mobile: Stack Vertically */
 @media (max-width: 600px) {
   .footer__container {
     display: flex;
