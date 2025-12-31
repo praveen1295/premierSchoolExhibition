@@ -454,6 +454,7 @@ body {
 /* --- UPDATED RESPONSIVE: HIDE NAV ON MOBILE --- */
 @media (max-width: 768px) {
   /* Hide the middle navigation section completely */
+  .banner-container,
   .banner-list {
     display: none;
   }
